@@ -1,0 +1,49 @@
+.branch{
+    position: relative;
+    height: auto;
+    padding: 2rem 4rem;
+}
+
+.branch .title{
+    font-weight: 500;
+    font-size: 28px;
+    color: #6F2A82;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.cities{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.map{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.map > div > svg path{
+    fill: rgba(207, 187, 212, 1);
+    stroke: #fff;
+}
+
+@media (max-width: 768px) {
+    .branch{
+        padding: 1rem .5rem;
+    }
+    .map{
+        flex-wrap: wrap-reverse;
+    }
+}

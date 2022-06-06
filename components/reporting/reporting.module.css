@@ -1,0 +1,179 @@
+.reporting{
+    position: relative;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 4rem;
+    flex-direction: column;
+}
+
+.reporting .card{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 5rem;
+}
+
+.reporting .card .data{
+    width: 70%;
+}
+
+.reporting .card .data .load-more{
+    margin: auto;
+    display: flex;
+    border: 1px solid #9F2581;
+    box-sizing: border-box;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.13));
+    border-radius: 8px;
+    background: transparent;
+    padding: 0.5rem 3rem;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 38px;
+    text-align: right;
+    color: #AE2280;
+    cursor: pointer;
+}
+
+.reporting .card .info{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.reporting .card .info .title{
+    position: relative;
+    text-align: right;
+    padding: 1rem 4rem;
+}
+
+.reporting .card .info .title i{
+    background: url(../../public/images/report-pin.webp) no-repeat;
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+    right: 1rem;
+    position: absolute;
+}
+
+.reporting .card .info .title svg{
+    position: absolute;
+    left: 1rem;
+}
+
+.reporting .card .info ul{
+    width: 100%;
+}
+
+.reporting .card .info ul .items{
+    margin-bottom: 1rem;
+}
+
+.reporting .card .info ul .items .tab{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.reporting .card .info ul .items .tab span{
+    width: 48px;
+    height: 48px;
+    background: #F9F9F9;
+    box-shadow: 0px 5px 7px rgb(0 0 0 / 13%);
+    border-radius: 8px;
+    margin-left: .5rem;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.reporting .card .info ul .items .tab span::before{
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 18px;
+    background: rgba(142, 36, 170, 1);
+    top: -0.9rem;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+
+.reporting .card .info ul .items .tab span i{
+    background: url(../../public/images/report-checkbox.webp) no-repeat;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    transform: scale(.6);
+}
+
+.reporting .card .info ul .items .tab .txt{
+    padding: .7rem 1rem;
+    border-radius: 8px;
+}
+
+.reporting .card .img{
+    width: 30%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.reporting .card .img .icon{
+    background: #FFFFFF;
+    box-shadow: 0px 0px 22px rgb(0 0 0 / 10%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 2.9rem;
+    right: 4rem;
+    top: -3rem;
+}
+
+.reporting .card .img .icon::before{
+    content: "";
+    position: absolute;
+    background: url(../../public/images/circle-report.webp) no-repeat center;
+    background-size: cover;
+    width: 360px;
+    height: 329px;
+    display: block;
+    transform: scale(.7);
+    top: -4rem;
+    left: -4rem;
+}
+
+@media (max-width: 768px) {
+    .reporting{
+        padding: 1rem .5rem;
+    }
+    .reporting .card{
+        flex-direction: column-reverse;
+    }
+    .reporting .card > div{
+        width: 100% !important;
+    }
+    .reporting .card > ul{
+        width: 100% !important;
+        margin-bottom: 2rem;
+    }
+    .reporting .card .info .title{
+        font-size: 1rem;
+    }
+    .reporting .card .info .title svg{
+        position: absolute;
+        top: .6rem;
+    }
+    .reporting .card .info .title i{
+        background-size: contain !important;
+        width: 20px;
+        top: 1.3rem;
+    }
+}

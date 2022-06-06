@@ -1,0 +1,8 @@
+.image{
+    width: 100%;
+}
+
+.image span{
+    border-radius: 8px;
+    overflow: hidden;
+}

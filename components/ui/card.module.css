@@ -1,0 +1,15 @@
+.card{
+    background: #FFFFFF;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.11);
+    border-radius: 15px;
+    width: 100%;
+    padding: 4rem 2rem;
+    position: relative;
+    z-index: 3;
+}
+
+@media (max-width: 768px) {
+    .card{
+        padding: 2rem 1rem;
+    }
+}

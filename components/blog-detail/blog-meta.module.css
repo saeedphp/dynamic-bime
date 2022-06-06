@@ -1,0 +1,36 @@
+.card{
+    width: 100%;
+    padding: .5rem 2rem;
+    background: rgba(241, 242, 242, 0.54);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 2rem 0;
+}
+
+.card time{
+    display: flex;
+    margin-left: 2rem;
+    font-size: .8rem;
+}
+
+.card time svg path{
+    fill: #E40F7E;
+}
+
+.card .meta{
+    display: flex;
+    align-items: center;
+    font-size: .8rem;
+}
+
+.card svg{
+    margin-left: 1rem;
+}
+
+@media (max-width: 768px) {
+    .card{
+        padding: .5rem;
+    }
+}

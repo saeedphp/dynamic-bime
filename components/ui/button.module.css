@@ -1,0 +1,41 @@
+.btn{
+    width: fit-content;
+    background: linear-gradient(81.13deg, #E40F7E -56.13%, #8E24AA 107.4%);
+    opacity: 0.82;
+    backdrop-filter: blur(27.2895px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 35.3158px;
+    text-align: center;
+    color: #fff;
+    padding: 0.6rem 1.7rem;
+    overflow: hidden;
+    cursor: pointer;
+    outline: unset;
+    border: none;
+    font-size: .8rem;
+}
+
+.btn::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    opacity: 1;
+    -webkit-transform: translate(-105%, 0);
+    transform: translate(-105%, 0);
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.btn:hover::before{
+    opacity: 0;
+    -webkit-transform: translate(0);
+    transform: translate(0);
+}

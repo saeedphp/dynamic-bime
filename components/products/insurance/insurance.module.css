@@ -1,0 +1,96 @@
+.insurance{
+    position: relative;
+    height: auto;
+    padding: 2rem 4rem;
+}
+
+.insurance .main{
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.insurance .main > div{
+    padding: 1rem;
+}
+
+.insurance .main .tab{
+    width: 30%;
+    height: 100%;
+}
+
+.insurance .main .tab li{
+    font-weight: 400;
+    font-size: 1rem;
+    color: rgba(64, 60, 73, 0.78);
+    padding-bottom: 2rem;
+    border-left: 4px solid rgba(241, 242, 242, 1);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+
+.insurance .main .tab li span{
+    margin-left: 1.5rem;
+    background: rgba(241, 242, 242, 0.45);
+    box-shadow: 0px 5px 7px rgb(0 0 0 / 13%);
+    border-radius: 8px;
+    width: 49px;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.insurance .main .info{
+    width: 70%;
+    position: relative;
+}
+
+.insurance .main .info::before{
+    content: "";
+    position: absolute;
+    background: url('../../../public/images/product-dots.webp');
+    width: 116px;
+    height: 116px;
+    display: block;
+    top: -3rem;
+    left: -2rem;
+    z-index: 1;
+}
+
+.insurance .main .info .card{
+    position: relative;
+    z-index: 2;
+}
+
+.insurance .main .info div{
+    text-align: justify;
+    font-size: .9rem;
+    line-height: 32px;
+}
+
+@media (max-width: 768px) {
+    .insurance{
+        padding: 1rem .5rem;
+    }
+    .insurance .main{
+        flex-wrap: wrap;
+    }
+    .insurance .main .tab{
+        width: 100%;
+    }
+    .insurance .main .info{
+        width: 100%;
+    }
+    .insurance .main .tab > span{
+        display: none !important;
+    }
+    .insurance .main .info .title{
+        font-size: 1rem;
+        padding: .5rem;
+    }
+}

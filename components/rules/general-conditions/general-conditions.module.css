@@ -1,0 +1,31 @@
+.conditions{
+    position: relative;
+    height: auto;
+    margin: 2rem 4rem;
+    width: unset !important;
+}
+
+.conditions p.desc{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 31px;
+    text-align: justify;
+    text-align-last: center;
+    color: #403C49;
+    margin-bottom: 3rem;
+}
+
+.wrapper{
+    width: 100%;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .conditions{
+        margin: 1rem .5rem;
+    }
+    .conditions p.desc{
+        font-size: 1rem;
+    }
+}
+

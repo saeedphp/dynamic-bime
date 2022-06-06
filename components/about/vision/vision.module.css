@@ -1,0 +1,27 @@
+.vision{
+    position: relative;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 4rem;
+}
+
+.vision .info{
+    margin-bottom: 3rem;
+}
+
+.vision .info p{
+    text-align: justify;
+}
+
+.vision ul{
+    width: 100%;
+}
+
+@media (max-width: 768px){
+    .vision{
+        padding: 1rem .5rem
+    }
+}

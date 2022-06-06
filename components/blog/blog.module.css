@@ -1,0 +1,17 @@
+.blog{
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 2rem 4rem;
+}
+
+@media (max-width: 768px) {
+    .blog{
+        padding: 1rem .5rem;
+        flex-direction: column-reverse;
+    }
+    .blog .sidebar{
+        width: 100%;
+    }
+}

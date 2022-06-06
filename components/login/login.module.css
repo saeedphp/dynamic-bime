@@ -1,0 +1,66 @@
+.login{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login .card{
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+}
+
+.login .card .title{
+    background: #f1f2f2;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 13%);
+    border-radius: 8px 8px 0 0;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #6f2a82;
+    padding: 0.5rem 0;
+}
+
+.login form{
+    margin: 4rem 0;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.login .controls{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.login .controls label{
+    color: #6f2a82;
+    margin-bottom: 0.5rem;
+}
+
+.login .controls input{
+    background: rgba(226,212,230,.24);
+    border: 2px solid rgba(207,187,213,.82);
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 0.8rem;
+}
+
+.login .controls svg{
+    position: absolute !important;
+    left: 1rem;
+    bottom: 1rem;
+    cursor: pointer;
+    display: flex;
+}

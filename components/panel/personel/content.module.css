@@ -1,0 +1,138 @@
+.sidebar{
+    display: flex;
+    width: 25%;
+    justify-content: space-between;
+    margin-left: 0.5rem;
+    align-items: center;
+    flex-direction: column;
+    background: #FFFFFF;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.panel{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel nav{
+    padding: 1rem 0;
+    position: relative;
+}
+
+.panel ul li{
+    padding: 1rem;
+    margin: 5px 16px;
+}
+
+.panel ul li a{
+    display: flex;
+    width: 100%;
+    cursor: pointer;
+}
+
+.panel ul li a span{
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.sidebar .img{
+    margin-bottom: 2rem;
+    width: 175px;
+}
+
+.main{
+    width: 75%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-right: .5rem;
+    flex-direction: column;
+}
+
+.main .search{
+    padding: .3rem;
+    width: 100%;
+    overflow: hidden;
+    border: 0.905263px solid #6F2A82;
+    border-radius: 8px;
+    display: flex;
+}
+
+.main .search input{
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.box{
+    background: #FFFFFF;
+    border-radius: 14px;
+    padding: 1.5rem;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.box .header{
+    background: #E2D4E6;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.box .header h4{
+    color: #6F2A82;
+}
+
+.box .body .item{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #F4F4F4;
+    margin-bottom: 1rem;
+    padding: 0 0 1rem;
+    margin-top: 1rem;
+}
+
+.box .body .item p{
+    width: 200px;
+}
+
+.box .body .item:last-child{
+    border-bottom: none;
+}
+
+@media (max-width: 768px) {
+    .sidebar{
+        width: 100%;
+        margin: 0 0 1rem;
+    }
+
+    .main{
+        width: 100%;
+        margin: unset;
+    }
+
+    .box .header{
+        padding: 0 1rem;
+    }
+    .box .header h4{
+        margin: .3rem 0;
+    }
+    .box .body .item p{
+        font-size: 12px;
+        width: auto;
+    }
+    .box .body .item time{
+        font-size: 12px;
+    }
+    .box .body .item a{
+        font-size: 0;
+        padding: .2rem 0.3rem;
+    }
+}

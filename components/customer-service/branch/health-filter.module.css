@@ -1,0 +1,18 @@
+.wrapper{
+    background: #6F2A82;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 13%);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    width: 44%;
+    position: absolute;
+    top: 2rem;
+    padding: 1rem 1.3rem;
+}
+
+.wrapper span{
+    display: flex;
+    align-items: center;
+}

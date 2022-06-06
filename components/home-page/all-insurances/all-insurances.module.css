@@ -1,0 +1,135 @@
+.insurance{
+    position: relative;
+    width: 100%;
+    padding: 2rem 4rem;
+    background: rgba(226, 212, 230, 0.24);
+}
+
+.insurance ul{
+    text-align: center;
+}
+
+.insurance ul li{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0 5rem;
+    width: 10%;
+}
+
+.insurance li .title{
+    position: relative;
+    font-size: 12px;
+}
+
+.insurance li .title::before{
+    content: "";
+    position: absolute;
+    background: url(../../../public/images/pin.png);
+    width: 16px;
+    height: 48px;
+    display: block;
+    bottom: -4rem;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+
+.insurance ul li p{
+    position: relative;
+}
+
+.insurance .iconBg{
+    position: relative;
+    top: 4rem;
+    width: 80px;
+    height: 80px;
+    display: block;
+    border-radius: 50%;
+    padding: 9px;
+    box-shadow: 0 0 12px rgb(142 36 170 / 17%);
+    background: #fff;
+    transition: background .4s ease-in-out;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+/*.insurance .iconBg:hover{
+    background: linear-gradient(30.42deg, #E40F7E -17.88%, #8E24AA 151.57%);
+}*/
+
+.insurance .iconBg:hover svg path{
+    fill: #fff;
+}
+
+/*.insurance .iconBg::before{
+    content: "";
+    position: absolute;
+    background: url(../../../public/images/pin.png);
+    width: 16px;
+    height: 48px;
+    display: block;
+    top: -48px;
+    right: 0;
+    left: 0;
+    margin: auto;
+}*/
+
+.insurance .iconBg::before{
+    content: "";
+    position: absolute;
+    top: -1.2rem;
+    left: -1.3rem;
+    margin: auto;
+    background: url('../../../public/images/inner-arc.png') no-repeat;
+    width: 120px;
+    height: 120px;
+    transition: all .4s ease-in-out;
+}
+
+.insurance .iconBg::after{
+    content: "";
+    position: absolute;
+    top: -2.3rem;
+    left: -2.35rem;
+    margin: auto;
+    background: url('../../../public/images/outer-arc.png') no-repeat;
+    width: 154px;
+    height: 152px;
+    transition: all .4s ease-in-out;
+}
+
+.insurance .iconBg:hover::after{
+    transform: rotate(30deg);
+}
+
+.insurance .iconBg:hover::before{
+    transform: rotate(-30deg);
+}
+
+.insurance li a svg{
+    padding: 10px;
+}
+
+@media (max-width: 768px){
+    .insurance{
+        padding: 1rem .5rem;
+    }
+    .insurance ul li{
+        width: 50%;
+    }
+}
+
+@media (min-width: 430px) and (max-width: 768px) {
+    .insurance ul li{
+        width: 33%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    .insurance ul li{
+        width: 17%;
+    }
+}

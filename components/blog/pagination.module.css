@@ -1,0 +1,48 @@
+.pagination{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.pagination ul{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    direction: ltr;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination ul li{
+    display: inline-block;
+    margin: 0 1rem;
+    cursor: pointer;
+}
+
+.pagination ul li a{
+    font-weight: 400;
+    font-size: 18px;
+    color: #000000;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    border-radius: 50%;
+}
+
+.pagination ul span{
+    background: rgba(241, 242, 242, 0.89);
+    border-radius: 6px;
+    cursor: pointer;
+    width: 3rem;
+    display: flex;
+    justify-content: center;
+    height: 2rem;
+    align-items: center;
+    user-select: none;
+}

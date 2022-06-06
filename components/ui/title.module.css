@@ -1,0 +1,10 @@
+.title{
+    background: #E2D4E6;
+    border-radius: 15px;
+    width: 100%;
+    position: relative;
+    padding: .7rem 2rem;
+    text-align: center;
+    color: #6F2A82;
+    font-size: 1rem;
+}

@@ -1,0 +1,8 @@
+.title{
+    display: flex;
+    align-items: center;
+}
+
+.title svg{
+    margin-left: 1rem;
+}

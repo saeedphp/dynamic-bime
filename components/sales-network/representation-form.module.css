@@ -1,0 +1,92 @@
+.form{
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form .controls{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form .controls > div{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+.form .controls .gender p{
+    color: #6F2A82;
+    margin-bottom: .5rem;
+}
+
+.form .controls .gender label{
+    display: inline-block;
+    margin-left: 2rem;
+    color: #000;
+}
+
+.form .controls > div input{
+    background: rgba(226, 212, 230, 0.24);
+    border: 2px solid rgba(207, 187, 213, 0.82);
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 0.8rem;
+}
+
+.form .controls > div textarea{
+    width: 100%;
+    background: rgba(226, 212, 230, 0.24);
+    border: 2px solid rgba(207, 187, 213, 0.82);
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 0.8rem;
+    height: 195px;
+    resize: none;
+}
+
+.form .controls > div label{
+    color: #6F2A82;
+    margin-bottom: .5rem;
+}
+
+.form .txtControls > div{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.form .ostan{
+    margin-bottom: 3rem;
+}
+
+.form .ostan select{
+    width: 100%;
+    background: rgba(226, 212, 230, 0.24);
+    border: 2px solid rgba(207, 187, 213, 0.82);
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 0.8rem;
+}
+
+.form .ostan label{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 31px;
+    text-align: right;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .form .controls{
+        flex-direction: column;
+    }
+    .form .controls > div{
+        width: 100%;
+    }
+}

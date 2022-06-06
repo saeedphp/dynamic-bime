@@ -1,0 +1,39 @@
+.personel{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 2rem 4rem;
+    background: #e5e5e55c;
+}
+
+.personel .content{
+    display: flex;
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-right: 2rem;
+}
+
+.header p{
+    font-weight: 600;
+    font-size: 25px;
+    color: #6F2A82;
+}
+
+@media (max-width: 768px) {
+    .personel{
+        padding: .5rem 1rem;
+    }
+    .header{
+        padding: unset;
+    }
+    .personel .content{
+        flex-wrap: wrap;
+    }
+}

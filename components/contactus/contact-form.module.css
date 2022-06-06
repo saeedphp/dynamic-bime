@@ -1,0 +1,181 @@
+.contact-form{
+    height: auto;
+    padding: 0rem 4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 0 26px #E9E9E9;
+    border-radius: 15px;
+    margin: 0 4rem;
+}
+
+.contact-form .social{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-form .social span{
+    display: block;
+    padding: 6px;
+}
+
+.contact-form .social > div:first-child{
+    margin: 3rem 0 2rem;
+}
+
+.contact-form .social ul{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-form .social ul li{
+    margin: 0 1rem;
+    border: 1px solid #E40F7E;
+    border-radius: 50%;
+    padding: 0.5rem;
+    position: relative;
+}
+
+/*.contact-form .social ul li::before{
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #E40F7E;
+    right: 0;
+    transform: translate(-3px, 23px);
+}
+
+.contact-form .social ul li::after{
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #E40F7E;
+    left: 0;
+    transform: translate(3px, -26px);
+}*/
+
+.contact-form .social ul li a{
+    background: #E40F7E;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: block;
+    position: relative;
+}
+
+.contact-form .social ul li a svg{
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.contact-form .social ul li a svg path{
+    fill: #fff
+}
+
+.contact-form .form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-form .form h2{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 56px;
+    text-align: center;
+    color: #6F2A82;
+}
+
+.contact-form .form form{
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.contact-form .form .controls{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.contact-form .form .controls .labelWrapper{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.contact-form .form .controls label{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 31px;
+    text-align: right;
+    color: rgba(64, 60, 73, 0.92);
+    margin-bottom: .5rem;
+}
+
+.contact-form .form .controls input{
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid rgba(196, 196, 196, 0.58);
+    box-sizing: border-box;
+    border-radius: 20px;
+    padding: .8rem;
+}
+
+.contact-form .form .controls textarea{
+    background: #FFFFFF;
+    border: 1px solid rgba(196, 196, 196, 0.58);
+    box-sizing: border-box;
+    border-radius: 20px;
+    width: 100%;
+    resize: none;
+    height: 180px;
+    padding: 1rem;
+}
+
+.contact-form .form .controls button{
+    border: unset;
+    outline: unset;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.error{
+    color: rgba(248, 0, 0, 0.58);
+    margin: 0 1rem .5rem 0;
+}
+
+@media (max-width: 768px) {
+    .contact-form{
+        flex-direction: column;
+        padding: 1rem .5rem;
+        margin: 0 1rem;
+    }
+    .contact-form .form h2{
+        font-size: 1.5rem;
+    }
+    .contact-form .form .controls button{
+        font-size: 1rem;
+    }
+    .contact-form .social ul li a{
+        width: 40px;
+        height: 40px;
+    }
+}

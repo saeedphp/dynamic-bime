@@ -1,0 +1,139 @@
+.suggestion{
+    position: relative;
+    width: unset !important;
+    height: auto;
+    margin: 2rem 4rem;
+    border-top: 19px solid #6F2A82;
+    padding: 2rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.suggestion > div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.suggestion .img span{
+    width: 100%;
+    padding: 0 5rem;
+}
+
+.suggestion h2{
+    font-weight: 500;
+    font-size: 28px;
+    text-align: center;
+    color: #6F2A82;
+    margin: 0;
+}
+
+.suggestion form{
+    width: 100%;
+    padding: 2rem 4rem;
+}
+
+.suggestion .controls{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.suggestion .control{
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+
+.suggestion .handler{
+    display: flex;
+    align-items: center;
+}
+
+.suggestion label{
+    font-style: normal;
+    font-weight: 500;
+    font-size: .9rem;
+    line-height: 31px;
+    text-align: right;
+    color: rgba(64, 60, 73, 0.92);
+    margin-bottom: .5rem;
+}
+
+.suggestion .controls input{
+    width: 100%;
+    box-sizing: border-box;
+    padding: .8rem;
+    background: rgba(226, 212, 230, 0.24);
+    border: 2px solid rgba(207, 187, 213, 0.82);
+    border-radius: 8px;
+}
+
+.suggestion .txt textarea{
+    box-sizing: border-box;
+    width: 100%;
+    resize: none;
+    height: 180px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: rgba(226, 212, 230, 0.24);
+    border: 2px solid rgba(207, 187, 213, 0.82);
+    border-radius: 8px;
+}
+
+.suggestion .controls > div{
+    width: 70%;
+}
+
+.suggestion .button{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 70%;
+    margin: 1rem auto 0;
+    font-size: 1rem;
+}
+
+.error{
+    font-style: normal;
+    font-weight: 500;
+    font-size: .9rem;
+    line-height: 31px;
+    text-align: right;
+    color: rgba(64, 60, 73, 0.92);
+    margin: 0 1rem 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .suggestion{
+        margin: 1rem .5rem;
+        flex-direction: column;
+    }
+    .suggestion form{
+        padding: 1rem .5rem;
+    }
+    .suggestion h2{
+        font-size: 1rem;
+    }
+    .suggestion .controls{
+        flex-wrap: wrap;
+    }
+    .suggestion .controls > div{
+        width: 100%;
+    }
+    .suggestion .img span{
+        padding: unset;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    .suggestion h2{
+        font-size: 1rem;
+    }
+}

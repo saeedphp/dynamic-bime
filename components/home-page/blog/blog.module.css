@@ -1,0 +1,136 @@
+.blog {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 4rem;
+    flex-direction: column;
+}
+
+.blog .row-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.blog .row-info .title {
+    font-size: 1.5rem;
+    color: #000;
+    width: 20%;
+    text-align: center;
+}
+
+.blog .row-info ul {
+    border-radius: 8px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.blog .row-info ul li {
+    display: inline-block;
+    cursor: pointer;
+    border-bottom: 2px solid #ccc;
+    padding: 13px 21px;
+    position: relative;
+}
+
+.blog .row-info ul li::after {
+    position: absolute;
+    height: 2px;
+    width: 0;
+    right: 0;
+    bottom: -2px;
+    background-color: #6F2A82;
+    content: "";
+    display: block;
+    border-radius: 1.5px;
+    -webkit-border-radius: 1.5px;
+    -moz-border-radius: 1.5px;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+}
+
+.blog .row-info ul li:hover::after {
+    opacity: 1;
+    width: 100%;
+}
+
+
+
+.blog .blog-posts__active {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0;
+}
+
+.blog .blog-posts__active::before {
+    content: "";
+    position: absolute;
+    background: url(../../../public/images/blog-bullet.png) no-repeat;
+    right: -2rem;
+    top: 0;
+    width: 193px;
+    height: 193px;
+    display: block;
+}
+
+.blog .blog-posts__active::after {
+    content: "";
+    position: absolute;
+    background: url(../../../public/images/circle.png) no-repeat;
+    left: 0;
+    bottom: 0;
+}
+
+.blog .blog-posts__active p {
+    text-align: justify;
+    color: #000;
+    font-size: .9rem;
+}
+
+.tab {
+    color: rgba(64, 60, 73, 0.53);
+}
+
+.tab-active {
+    color: #6F2A82 !important;
+    border-bottom: 2px solid #6F2A82 !important;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .blog .row-info .title{
+        width: 100%;
+    }
+    .blog .row-info ul{
+        width: 100%;
+    }
+    .blog {
+        padding: 1rem .5rem;
+    }
+
+    .blog .row-info {
+        flex-direction: column;
+    }
+
+    .blog .blog-posts__active {
+        flex-direction: column;
+    }
+
+    .blog .row-info ul li {
+        padding: 13px 11px;
+    }
+}

@@ -1,0 +1,42 @@
+.items{
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.items span{
+    background: rgba(241, 242, 242, 0.45);
+    box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.13);
+    border-radius: 8px;
+    display: flex;
+    padding: 8px;
+}
+
+.items span i{
+    background: url(../../../public/images/vision.webp) no-repeat;
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    transform: scale(.9);
+}
+
+.items p{
+    color: rgba(64, 60, 73, 1);
+    font-weight: 500;
+    display: inline-block;
+    width: 80%;
+    margin: 0 1rem;
+    background: #F9F9F9;
+    box-shadow: 0px 5px 7px rgb(0 0 0 / 13%);
+    border-radius: 8px;
+    padding: 1.3rem 1rem;
+    text-align: right;
+}
+
+@media (max-width: 768px){
+    .items p{
+        text-align: justify;
+        text-align-last: center;
+    }
+}

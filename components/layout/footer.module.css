@@ -1,0 +1,13 @@
+.footer{
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 2rem;
+    background: url(../../public/images/footer-pattern.png) no-repeat;
+    background-size: cover;
+    flex-direction: column;
+}
+

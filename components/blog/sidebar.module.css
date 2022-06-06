@@ -1,0 +1,130 @@
+.sidebar {
+    display: flex;
+    width: 30%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 1.7rem;
+}
+
+.sidebar .wrapper {
+    background: #FCFCFC;
+    border-radius: 9px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 12%);
+    width: 100%;
+    padding: 1.5rem 1rem;
+    margin-bottom: 5rem;
+    position: relative;
+}
+
+.sidebar .wrapper::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background: #FCFCFC;
+    border-radius: 9px;
+    transform: skewY(2deg);
+    top: -10px;
+    right: 1px;
+    z-index: 1;
+}
+
+.sidebar .wrapper::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 62px;
+    background: #E2D4E6;
+    border-radius: 9px;
+    transform: skewY(-3deg);
+    top: -36px;
+    right: 0;
+    z-index: -1;
+}
+
+.sidebar .wrapper h2.title {
+    font-size: 18px;
+    text-align: right;
+    color: #403C49;
+    margin: 0rem 0 2rem;
+    position: relative;
+    padding: 0 0 .5rem;
+    z-index: 3;
+}
+
+.sidebar .wrapper h2.title::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #E5E5E5;
+    bottom: 0;
+}
+
+.sidebar .wrapper h2.title::after {
+    content: "";
+    position: absolute;
+    width: 20%;
+    height: 2px;
+    background: #e40f7e42;
+    bottom: 0;
+    right: 0;
+}
+
+.sidebar .wrapper .items {
+    margin-bottom: 1rem;
+}
+
+.sidebar .wrapper .items .post-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .wrapper .items .post-wrapper .image {
+    margin-left: .7rem;
+}
+
+.sidebar .wrapper .items .post-wrapper .image span {
+    width: 100px !important;
+    border-radius: 4px !important;
+    overflow: hidden;
+    padding: .3em !important;
+    border: 1px solid #eee !important;
+}
+
+.sidebar .wrapper .items .post-wrapper .image span img {
+    border-radius: 4px !important;
+    overflow: hidden;
+}
+
+.sidebar .wrapper .items .post-wrapper .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar .wrapper .items .post-wrapper .info .title {
+    font-size: .7rem;
+}
+
+.sidebar .wrapper .items .post-wrapper .info time {
+    font-size: .7rem;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .wrapper .items .post-wrapper .info time > svg {
+    transform: scale(.7);
+}
+
+.sidebar .wrapper .items .post-wrapper .info time svg path {
+    fill: #E40F7E;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        margin-top: 6rem;
+    }
+}

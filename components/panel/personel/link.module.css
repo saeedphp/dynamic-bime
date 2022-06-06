@@ -1,0 +1,57 @@
+.link{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.link .item{
+    background: #FFFFFF;
+    opacity: 0.82;
+    box-shadow: 0px 4px 21px rgb(241 160 202 / 52%);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    margin-bottom: .5rem;
+}
+
+.link .item::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -2.5rem;
+    width: 6rem;
+    height: 100%;
+    background: linear-gradient(81.13deg, #E40F7E -56.13%, #8E24AA 107.4%);
+    transition: all .3s;
+    border-radius: 2rem;
+}
+
+.link .item:hover::before{
+    border-radius: .8rem;
+}
+
+.link .item::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 7px;
+    height: 100%;
+    background: linear-gradient(81.13deg, #E40F7E -56.13%, #8E24AA 107.4%);
+    transition: all .3s;
+}
+
+.link .item:hover::after{
+    width: 15px;
+}
+
+.link .item a{
+    padding: 1rem 2rem;
+    display: block;
+}

@@ -1,0 +1,159 @@
+.all-insurance{
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(226, 212, 230, 0.24);
+    padding: 2rem 4rem;
+}
+
+.all-insurance ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.all-insurance ul li{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2rem 4rem;
+}
+
+.all-insurance ul li a{
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.all-insurance li > span::before{
+    content: "";
+    position: absolute;
+    background: url(../../../public/images/pin.png);
+    width: 16px;
+    height: 48px;
+    display: block;
+    top: -48px;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+
+.all-insurance li svg{
+    background: #fff;
+    border-radius: 50%;
+    width: 146px;
+    height: 146px;
+    position: relative;
+    box-shadow: 0 0 12px rgba(142, 36, 170, 0.17);
+
+}
+
+.all-insurance li > span svg{
+    transition: all .7s ease;
+}
+
+.all-insurance li > span:hover svg{
+    background: linear-gradient(30.42deg, #E40F7E -17.88%, #8E24AA 151.57%);
+}
+
+.all-insurance li > span:hover svg path{
+    fill: #fff;
+}
+
+.all-insurance li > span:hover svg circle{
+    fill: #fff;
+}
+
+.all-insurance li svg path{
+    transform: scale(.1) translateX(45px);
+}
+
+.all-insurance li:nth-child(3) svg path {
+    transform: scale(.2) translate(7rem,7rem);
+}
+
+.all-insurance li:nth-child(5) svg path {
+    transform: scale(.6) translate(1.8rem,1.4rem);
+}
+
+.all-insurance li:nth-child(6) svg path {
+    transform: scale(1.5) translate(1.4rem,1.4rem);
+}
+
+.all-insurance li:nth-child(7) svg path {
+    transform: scale(.2) translate(149px,134px);
+}
+
+.all-insurance li:nth-child(8) svg path{
+    transform: scale(.18) translate(180px,148px);
+}
+
+.all-insurance li:nth-child(9) svg path{
+    transform: scale(.135) translate(18rem,15rem);
+}
+
+.all-insurance .left-arrow__inner{
+    background: url(../../../public/images/left-arrow-inner.png) no-repeat;
+    width: 69px;
+    height: 128px;
+    display: inline-block;
+    position: absolute !important;
+    left: -1rem;
+    top: -10px;
+    transform: rotateZ(-5deg);
+    transition: .7s;
+}
+
+.all-insurance li > span:hover .left-arrow__inner{
+    transform: rotateZ(-33deg) translate3d(-17px, 24px, 0);
+}
+
+.all-insurance .left-arrow__outer{
+    background: url(../../../public/images/left-arrow-outer.png) no-repeat;
+    width: 71px;
+    height: 167px;
+    display: inline-block;
+    position: absolute !important;
+    left: -1.5rem;
+    top: -10px;
+    transform: rotateZ(3deg);
+    transition: .7s;
+}
+
+.all-insurance li > span:hover .left-arrow__outer{
+    transform: rotateZ(17deg) translate3d(-1px, -16px, 0);
+}
+
+.all-insurance .right-arrow__inner{
+    background: url(../../../public/images/right-arc-inner.png) no-repeat;
+    width: 69px;
+    height: 149px;
+    display: inline-block;
+    position: absolute !important;
+    right: -0.9rem;
+    top: 11px;
+    transform: rotateZ(3deg);
+    transition: .7s;
+}
+
+.all-insurance li > span:hover .right-arrow__inner{
+    transform: rotateZ(-27deg) translate3d(11px, -25px, 0);
+}
+
+.all-insurance .right-arrow__outer{
+    background: url(../../../public/images/right-arc-outer.png);
+    width: 71px;
+    height: 174px;
+    display: inline-block;
+    position: absolute !important;
+    right: -1.5rem;
+    top: -20px;
+    transform: rotateZ(3deg);
+    transition: .7s;
+}
+
+.all-insurance li > span:hover .right-arrow__outer{
+    transform: rotateZ(20deg) translate3d(5px, 19px, 0);
+}

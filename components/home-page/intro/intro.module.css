@@ -1,0 +1,199 @@
+.intro{
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-50%);
+}
+
+.intro .wrapper{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.intro .wrapper > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.intro .wrapper .dashedBorder__first{
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 1.666667px dashed #E40F7E;
+    box-sizing: border-box;
+    transform: matrix(1, 0, 0, -1, 0, 0);
+    animation: 60s spin infinite linear;
+}
+
+.intro .wrapper .dashedBorder__second{
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 1.466667px dashed rgba(228, 15, 126, 0.39);
+}
+
+.intro .wrapper .dashedBorder__second > div{
+    width: 42px;
+    height: 42px;
+    background: #fff;
+    z-index: 999;
+    position: absolute !important;
+    border-radius: 50%;
+    border: 1px solid #E40F7E;
+    background-repeat: no-repeat;
+    background-size: 21px;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+
+.intro .wrapper .dashedBorder__second > div > a{
+    position: absolute;
+    width: max-content;
+}
+
+.intro .wrapper .dashedBorder__second div.first{
+    left: -3%;
+    bottom: 30%;
+    background-image: url(../../../public/images/intro/pin.png);
+}
+
+.intro .wrapper .dashedBorder__second div.first a{
+    right: 4rem;
+}
+
+.intro .wrapper .dashedBorder__second div.second{
+    left: 18%;
+    bottom: 1%;
+    background-image: url(../../../public/images/intro/location.png);
+}
+
+.intro .wrapper .dashedBorder__second div.second a{
+    right: 4rem;
+}
+
+.intro .wrapper .dashedBorder__second div.third{
+    right: 18%;
+    bottom: 1%;
+    background-image: url(../../../public/images/intro/earth.png);
+}
+
+.intro .wrapper .dashedBorder__second div.third a{
+    left: 4rem;
+}
+
+.intro .wrapper .dashedBorder__second div.fourth{
+    right: -3%;
+    bottom: 30%;
+    background-image: url(../../../public/images/intro/suggest.png);
+}
+
+.intro .wrapper .dashedBorder__second div.fourth a{
+    left: 4rem;
+}
+
+.intro .wrapper .dashedBorder__third{
+    position: absolute;
+    width: 275px;
+    height: 275px;
+    border: 1.366667px dashed rgb(228 15 126 / 30%);
+    box-sizing: border-box;
+    border-radius: 50%;
+    transform: matrix(1, 0, 0, -1, 0, 0);
+    animation: 100s counterSpin infinite linear;
+}
+
+.intro .wrapper .personWrapper{
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 2px 2px 15px #ccc;
+}
+
+/*clockWise circle spin*/
+
+@-ms-keyframes spin {
+    from { -ms-transform: rotate(0deg); }
+    to { -ms-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/*clockWise circle spin*/
+
+/*counter clockWise spin*/
+
+@-ms-keyframes counterSpin {
+    from { -ms-transform: rotate(360deg); }
+    to { -ms-transform: rotate(0); }
+}
+@-moz-keyframes counterSpin {
+    from { -moz-transform: rotate(360deg); }
+    to { -moz-transform: rotate(0); }
+}
+@-webkit-keyframes counterSpin {
+    from { -webkit-transform: rotate(360deg); }
+    to { -webkit-transform: rotate(0); }
+}
+@keyframes counterSpin {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0);
+    }
+}
+
+/*counter clockWise spin*/
+
+@media (max-width: 768px) {
+    .intro .wrapper .personWrapper{
+        transform: scale(.7);
+    }
+    .intro .wrapper .person{
+        transform: scale(.6);
+    }
+    .intro .wrapper .dashedBorder__first{
+        width: 76px;
+        height: 76px;
+    }
+    .intro .wrapper .dashedBorder__second{
+        width: 139px;
+        height: 139px;
+    }
+    .intro .wrapper .dashedBorder__third{
+        width: 217px;
+        height: 217px;
+    }
+    .intro .wrapper .dashedBorder__second > div > a{
+        padding: 12px;
+        font-size: .8rem;
+    }
+    .intro .wrapper .dashedBorder__second div.first a{
+        right: 3rem;
+    }
+    .intro .wrapper .dashedBorder__second div.fourth a{
+        left: 3rem;
+    }
+}

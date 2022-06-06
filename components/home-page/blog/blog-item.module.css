@@ -1,0 +1,95 @@
+.items {
+    margin: 0 1rem;
+    background: #FFFFFF;
+    box-shadow: 0 0 10px rgb(0 0 0 / 12%);
+    border-radius: 25px;
+    padding: 1rem;
+    position: relative;
+}
+
+.items .imageWrapper {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.items .imageWrapper span {
+    transition: all .5s ease;
+}
+
+.items .imageWrapper span:hover {
+    transform: scale(1.3);
+}
+
+.items .imageWrapper .category {
+    position: absolute;
+    z-index: 1;
+    background: #E2D4E6;
+    border-radius: 8px;
+    padding: 0 0.7rem;
+    text-decoration: none;
+    top: 3rem;
+    right: 2rem;
+    color: rgba(111, 42, 130, 1);
+    transition: all .4s ease;
+    font-size: .8rem;
+    display: flex;
+    align-items: center;
+    height: 20px;
+    min-height: 39px;
+}
+
+.items .imageWrapper .category:hover {
+    background: rgba(111, 42, 130, 1);
+    color: #E2D4E6;
+}
+
+.items > a {
+    color: #6F2A82;
+    font-size: 1rem;
+    text-align: right;
+    margin: 1rem 0;
+    font-weight: 600;
+    min-height: 70px;
+    overflow: hidden;
+    display: block;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.controls time {
+    font-size: .9rem;
+    display: flex;
+    align-items: center;
+}
+
+.controls time svg {
+    margin-left: 1rem;
+}
+
+@media (max-width: 768px) {
+    .items > a {
+        font-size: 1rem;
+        text-align: justify;
+    }
+
+    .items {
+        margin: 1rem;
+    }
+
+    .items p {
+        font-size: .8rem;
+    }
+
+    .controls time {
+        font-size: .8rem;
+    }
+
+    .controls a {
+        padding: 0.5rem 1.5rem;
+    }
+}

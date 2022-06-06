@@ -1,0 +1,10 @@
+.renew{
+    position: relative;
+    width: 100%;
+    padding: 2rem 4rem;
+}
+
+.renew iframe{
+    width: 100%;
+    height: 1000px;
+}

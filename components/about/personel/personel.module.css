@@ -1,0 +1,12 @@
+.personel{
+    position: relative;
+    display: flex;
+    padding: 2rem 4rem;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .personel{
+        padding: 1rem .5rem;
+    }
+}
