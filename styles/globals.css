@@ -728,3 +728,9 @@ input[type=radio]{
     width: 400px;
   }
 }
+
+@media (min-width: 1200px) {
+/*  .slick-slider{
+    height: 500px !important;
+  }*/
+}

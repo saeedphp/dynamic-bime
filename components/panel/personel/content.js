@@ -8,6 +8,7 @@ import {getAllPersonelData} from "../../../data/personel-panel";
 import Card from "../../ui/card";
 import Links from "./links";
 import search from '../../../public/images/search.png';
+import {BASE_URL} from "../../../data/config";
 
 const Content = ({personelCat, personel}) => {
 
@@ -107,7 +108,7 @@ const Content = ({personelCat, personel}) => {
                                                         year: 'numeric',
                                                     })}
                                                 </time>
-                                                <PanelDownload>
+                                                <PanelDownload href={BASE_URL + item.customFileGetResponseDto.url}>
                                                     دانلود فرم
                                                 </PanelDownload>
                                             </div>
