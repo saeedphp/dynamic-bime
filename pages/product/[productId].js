@@ -77,10 +77,20 @@ const ProductDetailPage = () => {
     const router = useRouter();
     const {productId} = router.query;
     let currProduct;
-    let j = 0;
+    //let j = 0;
     for (let product of products) {
         if (product.id == productId) currProduct = product;
     }
+    for (let j=0; j<100;j++){
+        return j;
+    }
+
+    const filteredData = insuranceInfo.map((data) => {
+        if (data.insuranceDetail.id === currProduct) {
+
+        }
+    });
+
     if (currProduct != undefined)
         return (
             <Fragment>

@@ -7,7 +7,7 @@ import {BASE_URL} from "../../data/config";
 
 const ContactForm = () => {
 
-    const initialValues = {name: "", mobile: "", subject: ""}
+    const initialValues = {fullName: "", mobileNumber: "", text: "", cultureLcid: 1065, isActive: true, ordering: 1}
     const [formValues, setFormValues] = useState(initialValues);
     const [formError, setErrorForm] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
@@ -23,13 +23,15 @@ const ContactForm = () => {
 
     const submitForm = (e) => {
         e.preventDefault();
-        const post = {name, mobile, text};
+        const post = {fullName, mobileNumber, text};
+        console.log(formValues);
         fetch(BASE_URL + "api/v1.0/cms/contactUs", {
             method: "POST",
             headers: {
                 'accept': '*/*',
+                'content-type': 'application/json'
             },
-            body: JSON.stringify(post)
+            body: JSON.stringify(formValues)
         }).then(() => {
             console.log('new post');
             setErrorForm(validateForm(formValues));
@@ -52,18 +54,18 @@ const ContactForm = () => {
     const validateForm = (values) => {
         const errors = {};
         const regex = /^[^\s@\+@[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-        if (!values.name) {
-            errors.name = 'نام الزامی است!';
+        if (!values.fullName) {
+            errors.fullName = 'نام الزامی است!';
         }
-        if (!values.mobile) {
-            errors.mobile = 'شماره موبایل الزامی است!';
-        }else if (values.mobile.length < 11) {
-            errors.mobile = 'شماره همره نباید کمتر از 11 رقم باشد!';
-        }else if (values.mobile.length > 11) {
-            errors.mobile = 'شماره همره نباید بیشتر از 11 رقم باشد!';
+        if (!values.mobileNumber) {
+            errors.mobileNumber = 'شماره موبایل الزامی است!';
+        }else if (values.mobileNumber.length < 11) {
+            errors.mobileNumber = 'شماره همره نباید کمتر از 11 رقم باشد!';
+        }else if (values.mobileNumber.length > 11) {
+            errors.mobileNumber = 'شماره همره نباید بیشتر از 11 رقم باشد!';
         }
-        if (!values.subject) {
-            errors.subject = 'موضوغ الزامی است!';
+        if (!values.text) {
+            errors.text = 'موضوغ الزامی است!';
         }
         return errors
     }
@@ -143,36 +145,36 @@ const ContactForm = () => {
                     ) : ''}
                     <div className={styles.controls}>
                         <div className={styles.labelWrapper}>
-                            <label htmlFor="name">
+                            <label htmlFor="fullName">
                                 نام و نام خانوادگی*
                             </label>
                             <p className={styles.error}>
-                                {formError.name}
+                                {formError.fullName}
                             </p>
                         </div>
-                        <input className={formError.name ? 'error' : ''} id="name" name="name" type="text" value={formValues.name} onChange={handleChange}/>
+                        <input className={formError.fullName ? 'error' : ''} id="fullName" name="fullName" type="text" value={formValues.fullName} onChange={handleChange}/>
                     </div>
                     <div className={styles.controls}>
                         <div className={styles.labelWrapper}>
-                            <label htmlFor="mobile">
+                            <label htmlFor="mobileNumber">
                                 شماره موبایل*
                             </label>
                             <p className={styles.error}>
-                                {formError.mobile}
+                                {formError.mobileNumber}
                             </p>
                         </div>
-                        <input className={formError.mobile ? 'error' : ''} id="mobile" name="mobile" type="tel" value={formValues.mobile} onChange={handleChange} />
+                        <input className={formError.mobileNumber ? 'error' : ''} id="mobileNumber" name="mobileNumber" type="tel" value={formValues.mobileNumber} onChange={handleChange} />
                     </div>
                     <div className={styles.controls}>
-                       <div className={styles.labelWrapper}>
-                           <label htmlFor="complain">
-                               انتقاد و پیشنهاد شما*
-                           </label>
-                           <p className={styles.error}>
-                               {formError.subject}
-                           </p>
-                       </div>
-                        <textarea className={formError.subject ? 'error' : ''} name="subject" value={formValues.subject} onChange={handleChange} >
+                        <div className={styles.labelWrapper}>
+                            <label htmlFor="complain">
+                                انتقاد و پیشنهاد شما*
+                            </label>
+                            <p className={styles.error}>
+                                {formError.text}
+                            </p>
+                        </div>
+                        <textarea className={formError.text ? 'error' : ''} name="text" value={formValues.text} onChange={handleChange} >
 
                         </textarea>
                     </div>

@@ -15,9 +15,14 @@ const HeaderTop = () => {
     const token = cookies.get('token');
 
     const [isShown, setIsShown] = useState(false);
+    const [panel, setPanel] = useState(false);
 
     const toggle = () => {
         setIsShown(!isShown);
+    };
+
+    const togglePanel = () => {
+        setPanel(!panel);
     };
 
         return (
@@ -44,7 +49,7 @@ const HeaderTop = () => {
                     <HeaderSearch onClick={toggle}/>
                     <div className={`h-search ${styles.search__form} ${isShown ? 'active' : ''}`}>
                         <div className={styles.wrapper}>
-                            <form role="search" method="get" className="search-form" action="https://milgerdiran.com/">
+                            <form role="search" method="get" className="search-form" action="">
                                     <input type="text" placeholder="جستجو…" name="search" />
                             </form>
                         </div>
@@ -57,6 +62,15 @@ const HeaderTop = () => {
                            <span>
                                     پنل کاربری
                                 </span>
+                                {/*<ul className={`panelList ${styles.panelul} ${panel ? 'active' : ''}`}>
+                                    <li>
+                                        <Link href="/">
+                                            <a>
+                                                home
+                                            </a>
+                                        </Link>
+                                    </li>
+                                </ul>*/}
                             </a>
                         </Link>
                     ) : (

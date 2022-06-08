@@ -7,6 +7,7 @@ import {NextSeo} from "next-seo";
 import Image from "next/image";
 import imgPath from "../../../public/images/page-header.webp";
 import img from '../../../public/images/suggest.png';
+import {BASE_URL} from "../../../data/config";
 
 const Suggestions = () => {
 
@@ -26,16 +27,26 @@ const Suggestions = () => {
 
     const submitForm = (e) => {
         e.preventDefault();
-        setErrorForm(validateForm(formValues));
-        setIsSubmit(true);
+        const post = {fullName, mobileNumber, text};
+        console.log(formValues);
+        fetch(BASE_URL + "v1.0/cms/suggustion", {
+            method: "POST",
+            headers: {
+                'accept': '*/*',
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(formValues)
+        }).then(() => {
+            console.log('new post');
+            setErrorForm(validateForm(formValues));
+            setIsSubmit(true);
+        })
+
     }
 
-    useEffect(() => {
-        console.log(formError);
-        if (Object.keys(formError).length === 0 && isSubmit) {
-            console.log(formValues);
-        }
-    }, [formError]);
+    const [name, setName] = useState("");
+    const [mobile, setMobile] = useState("");
+    const [text, setText] = useState("");
 
     const validateForm = (values) => {
         const errors = {};
@@ -45,9 +56,9 @@ const Suggestions = () => {
         }
         if (!values.mobile) {
             errors.mobile = 'شماره موبایل الزامی است!';
-        }else if (values.mobile.length < 11) {
+        } else if (values.mobile.length < 11) {
             errors.mobile = 'شماره همره نباید کمتر از 11 رقم باشد!';
-        }else if (values.mobile.length > 11) {
+        } else if (values.mobile.length > 11) {
             errors.mobile = 'شماره همره نباید بیشتر از 11 رقم باشد!';
         }
         if (!values.subject) {
@@ -81,7 +92,8 @@ const Suggestions = () => {
                                         {formError.name}
                                     </p>
                                 </div>
-                                <input className={formError.name ? 'error' : ''} id="name" name="name" type="text" onChange={handleChange} />
+                                <input className={formError.fullName ? 'error' : ''} id="fullName" name="fullName"
+                                       type="text" value={formValues.fullName} onChange={handleChange}/>
                             </div>
                             <div className={styles.control}>
                                 <div className={styles.handler}>
@@ -92,7 +104,9 @@ const Suggestions = () => {
                                         {formError.mobile}
                                     </p>
                                 </div>
-                                <input className={formError.mobile ? 'error' : ''} id="mobile" name="mobile" type="number" onChange={handleChange} />
+                                <input className={formError.mobileNumber ? 'error' : ''} id="mobileNumber"
+                                       name="mobileNumber" type="tel" value={formValues.mobileNumber}
+                                       onChange={handleChange}/>
                             </div>
                             <div className={styles.txt}>
                                 <div className={styles.handler}>
@@ -103,24 +117,26 @@ const Suggestions = () => {
                                         {formError.subject}
                                     </p>
                                 </div>
-                                <textarea className={formError.subject ? 'error' : ''} name="subject" value={formValues.subject} onChange={handleChange} id="suggest">
+                                <textarea className={formError.text ? 'error' : ''} name="text" value={formValues.text}
+                                          onChange={handleChange}>
 
-                            </textarea>
-                            </div>
-                            <Button className={styles.button}>
-                                ارسال پیام
-                            </Button>
+                        </textarea>
+
                         </div>
-                    </form>
+                        <Button className={styles.button}>
+                            ارسال پیام
+                        </Button>
                 </div>
-                <div className={styles.img}>
+            </form>
+        </div>
+    <div className={styles.img}>
                     <span>
-                        <Image src={img} alt="image" layout={"fill"} />
+                        <Image src={img} alt="image" layout={"fill"}/>
                     </span>
-                </div>
-            </Card>
-        </Fragment>
-    )
+    </div>
+</Card>
+</Fragment>
+)
 };
 
 export default Suggestions;
