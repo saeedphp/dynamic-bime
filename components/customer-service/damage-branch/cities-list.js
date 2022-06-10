@@ -14,7 +14,7 @@ const CitiesList = (props) => {
 
     return (
         <ul>
-            {props.items.map((city) => (
+            {props.items.map((city, i) => (
                 <CityItem
                     key={city.id}
                     branchName={city.branchName}

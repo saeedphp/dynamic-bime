@@ -643,6 +643,26 @@ input[type=radio]{
   transform: translateY(0) !important;
 }
 
+#comments{
+  width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  padding: 1rem 1rem;
+  margin: 2rem auto;
+}
+
+#comments ul li{
+  border-bottom: 1px solid #ccc;
+  width: 90%;
+  margin: 3rem auto;
+  padding-bottom: .5rem;
+}
+
+#comments ul li:last-child{
+  border-bottom: none !important;
+}
+
 @media (max-width: 768px){
   .error_page{
     padding: 0 1rem;

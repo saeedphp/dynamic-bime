@@ -19,8 +19,30 @@ const ReportItem = () => {
                 'cultureLcid': 1065,
             }
         })
+            .then(async response => {
+                const data = await response.json();
+
+                // // check for error response
+                // if (!response.result) {
+                //     // get error message from body or default to response statusText
+                //     const error = (data && data.message) || response.statusText;
+                //     return Promise.reject(error);
+                // }
+
+                setReports(data.result);
+                // this.setState({ totalReactPackages: data.total })
+            })
+
+
+            .catch(error => {
+                // this.setState({ errorMessage: error.toString() });
+                console.error('There was an error!', error);
+            });
+    }, []);
+
+    useEffect(() => {
         setIsLoading(true)
-        fetch(BASE_URL + "api/v1.0/cms/revelationAttribute/active?pageIndex=0&pageSize=10", {
+        fetch(BASE_URL + "api/v1.0/cms/revelationAttribute/active?pageIndex=0&pageSize=100", {
             headers: {
                 'cultureLcid': 1065,
             }
@@ -35,7 +57,6 @@ const ReportItem = () => {
                 //     return Promise.reject(error);
                 // }
 
-                setReports(data.result);
                 setReportDetail(data.result);
                 // this.setState({ totalReactPackages: data.total })
             })
@@ -70,8 +91,6 @@ const ReportItem = () => {
                                             toggle(i)
                                         }} className={styles.title}>
                                             <i></i>
-                                            {report.id}
-                                            -
                                             {report.title}
                                             <DownArrow/>
                                         </Title>

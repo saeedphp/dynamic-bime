@@ -84,7 +84,7 @@ const Blog = () => {
                     <li className={category === "all" ? 'active' : null} onClick={() => setCategory("all")}>
                         همه
                     </li>
-                    {categories.slice(0,4).map((c, i) => {
+                    {categories.slice(0,2).map((c, i) => {
                         return (
                             <li className={category === c ? 'active' : ''} key={i} onClick={() => setCategory(c)}>
                                 {c}
@@ -97,31 +97,38 @@ const Blog = () => {
 
             <div className={toggle === 1 ? styles['blog-posts__active'] : styles['blog-posts']}>
                 {posts.slice(0,4).map((allBlog, i) => {
-                    if (category == "all"){
-                        return (
-                            <BlogItem
-                                key={allBlog.id}
-                                id={allBlog.id}
-                                title={allBlog.title}
-                                body={allBlog.body}
-                                picture={allBlog.picture}
-                                insertTime={allBlog.insertTime}
-                                blogCategories={allBlog.blogCategories}
-                            />
-                        )
-                    }else if (allBlog.category === category){
-                        return (
-                            <BlogItem
-                                key={allBlog.id}
-                                id={allBlog.id}
-                                title={allBlog.title}
-                                body={allBlog.body}
-                                picture={allBlog.picture}
-                                insertTime={allBlog.insertTime}
-                                blogCategories={allBlog.blogCategories}
-                            />
-                        )
-                    }
+
+                        for (let i in allBlog.blogCategories){
+                            for (let j in allBlog.blogCategories[i]){
+                                let x = allBlog.blogCategories[i][j];
+                                if (x == category){
+                                    return (
+                                        <BlogItem
+                                            key={allBlog.id}
+                                            id={allBlog.id}
+                                            title={allBlog.title}
+                                            body={allBlog.body}
+                                            picture={allBlog.picture}
+                                            insertTime={allBlog.insertTime}
+                                            blogCategories={allBlog.blogCategories}
+                                        />
+                                    )
+                                }else if (category == "all") {
+                                    return (
+                                        <BlogItem
+                                            key={allBlog.id}
+                                            id={allBlog.id}
+                                            title={allBlog.title}
+                                            body={allBlog.body}
+                                            picture={allBlog.picture}
+                                            insertTime={allBlog.insertTime}
+                                            blogCategories={allBlog.blogCategories}
+                                        />
+                                    )
+                                }
+                            }
+                        }
+
                 })}
             </div>
 

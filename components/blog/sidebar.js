@@ -47,7 +47,7 @@ const Sidebar = () => {
                     آخرین اخبار
                 </h2>
                 <ul>
-                    {posts.slice(0,3).map((sidebarBlog) => (
+                    {posts.slice(0,3).reverse().map((sidebarBlog) => (
                         <li key={sidebarBlog.id} className={styles.items}>
                             <div className={styles['post-wrapper']}>
                                 <div className={styles.image}>
@@ -79,7 +79,7 @@ const Sidebar = () => {
                     پر بازدیدترین اخبار
                 </h2>
                 <ul>
-                    {posts.slice(0,3).reverse().map((sidebarBlog) => (
+                    {posts.slice(0,3).map((sidebarBlog) => (
                         <li key={sidebarBlog.id} className={styles.items}>
                             <div className={styles['post-wrapper']}>
                                 <div className={styles.image}>

@@ -21,7 +21,7 @@
     transform: scale(.9);
 }
 
-.items p{
+.items > p{
     color: rgba(64, 60, 73, 1);
     font-weight: 500;
     display: inline-block;

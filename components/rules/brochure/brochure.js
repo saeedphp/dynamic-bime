@@ -7,6 +7,7 @@ import imgPath from '../../../public/images/brochure/download-1.webp';
 import {allBrochure} from "../../../data/brochure";
 import BrochureItem from "./brochure-item";
 import {NextSeo} from "next-seo";
+import {BASE_URL} from "../../../data/config";
 
 const Brochure = ({brochures}) => {
 
@@ -24,8 +25,8 @@ const Brochure = ({brochures}) => {
                         <BrochureItem
                             key={element.id}
                             title={element.title}
-                            link={"https://bimeharman.faradns.ir/" + element.customFileGetResponseDto.url}
-                            backgroundImg='images/brochure/download-4.webp'
+                            link={BASE_URL + element.customFileGetResponseDto.url}
+                            backgroundImg={BASE_URL + element.imageGetResponse.url}
                         />
                     ))}
                 </Card>

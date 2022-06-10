@@ -1,4 +1,4 @@
-import {Fragment, useState} from "react";
+import {Fragment, useEffect, useState} from "react";
 import PageHeader from "../../ui/page-header";
 import styles from './branch.module.css';
 import Cities from "./cities";
@@ -8,12 +8,41 @@ import {NextSeo} from "next-seo";
 import imgPath from "../../../public/images/page-header.webp";
 import IranMap from "../iran-map/IranMap";
 import iranProvinces from "../../../data/iranProvinces";
+import {BASE_URL} from "../../../data/config";
 
 const Branch = () => {
 
+    const [branch, setBranch] = useState([]);
+
+    useEffect(() => {
+        fetch(BASE_URL + "api/v1.0/cms/representation/active?pageIndex=0&pageSize=20", {
+            headers: {
+                'cultureLcid': 1065,
+            }
+        })
+            .then(async response => {
+                const data = await response.json();
+
+                // // check for error response
+                // if (!response.result) {
+                //     // get error message from body or default to response statusText
+                //     const error = (data && data.message) || response.statusText;
+                //     return Promise.reject(error);
+                // }
+
+                setBranch(data.result);
+                // this.setState({ totalReactPackages: data.total })
+            })
+
+            .catch(error => {
+                // this.setState({ errorMessage: error.toString() });
+                console.error('There was an error!', error);
+            });
+    }, []);
+
     const branches = allBranches();
 
-    const [showData, setShowData] = useState(true);
+/*    const [showData, setShowData] = useState(true);
     const ShowAll = () => setShowData(true);
     const ShowFun = () => setShowData(false);
 
@@ -52,7 +81,7 @@ const Branch = () => {
             name: 'Shirvan ( 812 M )',
             flys: 35,
         },
-    ]);
+    ]);*/
 
     return (
         <Fragment>
@@ -66,10 +95,10 @@ const Branch = () => {
                 </h2>
                 <div className={styles.map}>
                     <div className={styles.cities}>
-                        <Cities items={branches} />
+                        <Cities items={branch} />
                     </div>
                     <div className={styles.map}>
-                        {/*<div>
+                        <div>
                             <svg id="map" x="0px" y="0px" viewBox="0 0 500 500">
                                 <Link href="#" passHref>
                                     <a title="آذربایجان غربی">
@@ -446,13 +475,6 @@ const Branch = () => {
                                     </a>
                                 </Link>
                             </svg>
-                        </div>*/}
-                        <div className={styles.boxmap}>
-                            <IranMap
-                                HideShahr={HideShahr}
-                                setCitys={setCitys}
-                                setCurrentSite={setCurrentSite}
-                            />
                         </div>
                     </div>
                 </div>

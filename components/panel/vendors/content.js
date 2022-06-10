@@ -1,4 +1,4 @@
-import {Fragment, useState} from "react";
+import {Fragment, useEffect, useState} from "react";
 import styles from './content.module.css';
 import PanelDownload from "../../ui/panel-download";
 import News from "../../icons/panel/personel/news";
@@ -10,6 +10,7 @@ import Card from "../../ui/card";
 import Links from "./links";
 import search from '../../../public/images/search.png';
 import Application from "./application";
+import {BASE_URL} from "../../../data/config";
 
 const Content = ({vendorsCat, vendors}) => {
 
@@ -18,6 +19,33 @@ const Content = ({vendorsCat, vendors}) => {
     const toggleTab = (index) => {
         setToggle(index);
     };
+
+    useEffect(() => {
+        fetch(BASE_URL + "api/v1.0/security/users/authenticated", {
+            headers: {
+                'cultureLcid': 1065,
+            }
+        })
+            .then(async response => {
+                const data = await response.json();
+
+                // // check for error response
+                // if (!response.result) {
+                //     // get error message from body or default to response statusText
+                //     const error = (data && data.message) || response.statusText;
+                //     return Promise.reject(error);
+                // }
+
+                setAuth(data.result);
+                console.log('user info: ' + setAuth);
+                // this.setState({ totalReactPackages: data.total })
+            })
+
+            .catch(error => {
+                // this.setState({ errorMessage: error.toString() });
+                console.error('There was an error!', error);
+            });
+    }, []);
 
     const personelData = getAllPersonelData();
 
@@ -95,7 +123,11 @@ const Content = ({vendorsCat, vendors}) => {
                             <div key={i}>
                                 {vendors.filter((item) => (
                                     item.representativePanelCategoryGetResponse.id === vendorCategory.id
-                                ))
+                                )).filter((item) => {
+                                    return (
+                                        item.title.includes(inputText)
+                                    )
+                                })
                                     .map((item, i) => (
                                         <div id={item.title} className={`personel_container ${toggle === i ? 'active' : null}`} key={i}>
                                             <div key={i} className={`${styles.item}`}>

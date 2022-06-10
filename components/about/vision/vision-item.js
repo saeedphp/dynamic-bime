@@ -11,8 +11,8 @@ const VisionItem = (props) => {
 
                             </i>
                         </span>
-            <p>
-                {title}
+            <p dangerouslySetInnerHTML={{__html: title}}>
+
             </p>
         </li>
     );

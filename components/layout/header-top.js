@@ -8,6 +8,7 @@ import HeaderLogin from "../icons/header-login";
 import HeaderArrow from "../icons/header-arrow";
 import {useState} from "react";
 import Cookies from "universal-cookie";
+import {useRouter} from "next/router";
 
 const HeaderTop = () => {
 
@@ -23,6 +24,20 @@ const HeaderTop = () => {
 
     const togglePanel = () => {
         setPanel(!panel);
+    };
+
+    const router = useRouter();
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+
+
+        cookies.remove('token', {path: "/", redirect: '/login'});
+        console.log(cookies.get('token'));
+        router.push({
+            pathname: '/login',
+        });
+        //window.location.reload();
     };
 
         return (
@@ -57,22 +72,27 @@ const HeaderTop = () => {
                 </div>
                 <div className={styles.signIn}>
                     {token ? (
-                        <Link href="/panel/personel">
+                        <div onClick={togglePanel}>
                             <a>
                            <span>
                                     پنل کاربری
                                 </span>
-                                {/*<ul className={`panelList ${styles.panelul} ${panel ? 'active' : ''}`}>
+                                <ul className={`panelList ${styles.panelul} ${panel ? 'active' : ''}`}>
                                     <li>
-                                        <Link href="/">
+                                        <Link href="/panel/personel">
                                             <a>
-                                                home
+                                                پنل پرسنل
                                             </a>
                                         </Link>
                                     </li>
-                                </ul>*/}
+                                    <li>
+                                        <a onClick={submitHandler}>
+                                            خروج
+                                        </a>
+                                    </li>
+                                </ul>
                             </a>
-                        </Link>
+                        </div>
                     ) : (
                         <Link href="/login">
                             <a>

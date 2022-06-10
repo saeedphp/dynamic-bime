@@ -29,8 +29,8 @@ const Vision = ({visionsAttr, visions}) => {
                             <p>
                                 {item.title}
                             </p>
-                            <p>
-                                {item.description}
+                            <p dangerouslySetInnerHTML={{__html: item.description}}>
+
                             </p>
                         </div>
                     </Fragment>

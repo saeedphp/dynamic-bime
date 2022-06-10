@@ -1,13 +1,43 @@
-import {Fragment} from "react";
+import {Fragment, useEffect, useState} from "react";
 import {NextSeo} from "next-seo";
 import PageHeader from "../../ui/page-header";
 import imgPath from "../../../public/images/page-header.webp";
 import styles from "../../customer-service/damage-branch/damage-branch.module.css";
-import Cities from "../../sales-network/branch/cities";
+
 import Link from "next/link";
 import {allBranches} from "../../../data/branch";
+import Cities from "./cities";
+import {BASE_URL} from "../../../data/config";
 
 const DamageBranch = () => {
+
+    const [branch, setBranch] = useState([]);
+
+    useEffect(() => {
+        fetch(BASE_URL + "api/v1.0/cms/damageCenter/active?pageIndex=0&pageSize=100", {
+            headers: {
+                'cultureLcid': 1065,
+            }
+        })
+            .then(async response => {
+                const data = await response.json();
+
+                // // check for error response
+                // if (!response.result) {
+                //     // get error message from body or default to response statusText
+                //     const error = (data && data.message) || response.statusText;
+                //     return Promise.reject(error);
+                // }
+
+                setBranch(data.result);
+                // this.setState({ totalReactPackages: data.total })
+            })
+
+            .catch(error => {
+                // this.setState({ errorMessage: error.toString() });
+                console.error('There was an error!', error);
+            });
+    }, []);
 
     const branches = allBranches();
 
@@ -23,7 +53,7 @@ const DamageBranch = () => {
                 </h2>
                 <div className={styles.map}>
                     <div className={styles.cities}>
-                        <Cities items={branches}/>
+                        <Cities items={branch} />
                     </div>
                     <div>
                         <div>

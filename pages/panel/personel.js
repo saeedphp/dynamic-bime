@@ -1,11 +1,19 @@
 import {Fragment} from "react";
 import Personel from "../../components/panel/personel/personel";
 import {BASE_URL} from "../../data/config";
+import Cookies from "universal-cookie";
+import Login from "../../components/login/login";
+const cookies = new Cookies();
+const token = cookies.get('token');
 
 const PersonelPage = ({personelCat,personel}) => {
     return (
         <Fragment>
-            <Personel personelCat={personelCat} personel={personel} />
+            {token ? (
+                <Personel personelCat={personelCat} personel={personel} />
+            ) : (
+                null
+            )}
         </Fragment>
     )
 };

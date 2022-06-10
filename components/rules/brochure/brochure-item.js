@@ -5,12 +5,12 @@ import Download from "../../icons/download";
 const BrochureItem = (props) => {
 
     const {id, title, link, backgroundImg} = props;
-    const imgPath = `/${backgroundImg}`;
+    //const imgPath = `/${backgroundImg}`;
 
     return (
         <div className={styles.items}>
             <div className={styles.imgWrapper}>
-                <Image src={imgPath} alt={title} layout={"fill"} />
+                <Image src={backgroundImg} alt={title} layout={"fill"} />
             </div>
             <div className={styles.info}>
                 <h2>

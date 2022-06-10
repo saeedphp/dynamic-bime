@@ -23,7 +23,11 @@ const BlogMeta = (props) => {
                 <p className={styles.meta}>
                     <Category/>
                     دسته بندی :
-                    {blogCategories.name}
+                    {blogCategories.map((item, i) => (
+                        <Fragment key={i}>
+                            {item.name}
+                        </Fragment>
+                    ))}
                 </p>
             </div>
         </Fragment>

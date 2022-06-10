@@ -81,11 +81,6 @@ const Content = ({personelCat, personel}) => {
 
                     <div className={styles.body}>
 
-                                {/*{data.fields.filter((item) => {
-                                    return (
-                                        item.title.includes(inputText)
-                                    )
-                                })*/}
                         {personelCat.map((personelCategory, i) => (
                             <div key={i}>
                                 {personel.filter((item , i) => (
@@ -116,6 +111,10 @@ const Content = ({personelCat, personel}) => {
                                     ))}
                             </div>
                         ))}
+
+
+
+
 
                     </div>
 

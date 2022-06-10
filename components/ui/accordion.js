@@ -17,6 +17,10 @@ const Accordion = (props) => {
         setOpened(id);
     };
 
+    function createMarkup() {
+        return {__html: `${props.answer}`};
+    }
+
     return (
         <div className={styles.items}>
             <div onClick={() => toggle(id)}
@@ -38,8 +42,8 @@ const Accordion = (props) => {
 
             </div>
             <div className={`faq-answer ${styles['faq-answer']} ${opened === (id) ? 'active' : null}`}>
-                <p>
-                    {props.answer}
+                <p dangerouslySetInnerHTML={createMarkup()}>
+
                 </p>
             </div>
         </div>

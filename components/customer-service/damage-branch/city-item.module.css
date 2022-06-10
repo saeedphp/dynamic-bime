@@ -1,0 +1,22 @@
+.items{
+    margin-bottom: 2rem;
+    padding: 1rem !important;
+}
+
+.items .title{
+    font-weight: 400;
+    font-size: 18px;
+    color: #403C49;
+}
+
+.items .desc{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #000;
+    line-height: 2.5rem;
+}
+
+.items .desc svg{
+    margin-left: .5rem;
+}

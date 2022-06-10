@@ -11,7 +11,7 @@ import {BASE_URL} from "../../../data/config";
 
 const Suggestions = () => {
 
-    const initialValues = {name: "", mobile: "", subject: ""}
+    const initialValues = {fullName: "", mobileNumber: "", text: "", cultureLcid: 1065, isActive: true, ordering: 1}
     const [formValues, setFormValues] = useState(initialValues);
     const [formError, setErrorForm] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
@@ -29,7 +29,7 @@ const Suggestions = () => {
         e.preventDefault();
         const post = {fullName, mobileNumber, text};
         console.log(formValues);
-        fetch(BASE_URL + "v1.0/cms/suggustion", {
+        fetch(BASE_URL + "api/v1.0/cms/suggustion", {
             method: "POST",
             headers: {
                 'accept': '*/*',
@@ -48,9 +48,15 @@ const Suggestions = () => {
     const [mobile, setMobile] = useState("");
     const [text, setText] = useState("");
 
+    useEffect(() => {
+        console.log(formError);
+        if (Object.keys(formError).length === 0 && isSubmit) {
+            console.log(formValues);
+        }
+    }, [formError]);
+
     const validateForm = (values) => {
         const errors = {};
-        const regex = /^[^\s@\+@[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
         if (!values.name) {
             errors.name = 'نام الزامی است!';
         }
@@ -89,7 +95,7 @@ const Suggestions = () => {
                                         نام و نام خانوادگی*
                                     </label>
                                     <p className={styles.error}>
-                                        {formError.name}
+                                        {formError.fullName}
                                     </p>
                                 </div>
                                 <input className={formError.fullName ? 'error' : ''} id="fullName" name="fullName"
@@ -101,7 +107,7 @@ const Suggestions = () => {
                                         شماره موبایل*
                                     </label>
                                     <p className={styles.error}>
-                                        {formError.mobile}
+                                        {formError.mobileNumber}
                                     </p>
                                 </div>
                                 <input className={formError.mobileNumber ? 'error' : ''} id="mobileNumber"
@@ -114,13 +120,17 @@ const Suggestions = () => {
                                         انتقاد و پیشنهادات شما*
                                     </label>
                                     <p className={styles.error}>
-                                        {formError.subject}
+                                        {formError.text}
                                     </p>
                                 </div>
                                 <textarea className={formError.text ? 'error' : ''} name="text" value={formValues.text}
                                           onChange={handleChange}>
 
                         </textarea>
+
+                                <input type="hidden" id="isActive" name="isActive" value="1" />
+                                <input type="hidden" id="cultureLcid" name="cultureLcid" value="1065" />
+                                <input type="hidden" id="ordering" name="ordering" value="1" />
 
                         </div>
                         <Button className={styles.button}>

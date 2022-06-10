@@ -1,8 +1,9 @@
-import React, {Fragment} from "react";
+import React, {Fragment, useEffect, useState} from "react";
 import styles from "./health-list.module.css";
 import Link from "next/link";
 import DownloadBranch from "../../icons/download-branch";
 import Title from "../../ui/title";
+import {BASE_URL} from "../../../data/config";
 
 const HealthList = (props) => {
 
@@ -16,77 +17,66 @@ const HealthList = (props) => {
 
     return (
         <Fragment>
-            {props.items.map((healthItem) => (
-                <div key={healthItem.id}>
-                    <div className={styles['row-top']}>
-                        <div className={styles['download-row']}>
-                            <Link href={healthItem.link}>
-                                <a>
-                                    <DownloadBranch/>
-                                    <span>
-                            دانلود فایل مراکز درمانی بیمه آرمان در استان {healthItem.cityTitle}
-                        </span>
-                                </a>
-                            </Link>
-                        </div>
-                    </div>
 
-                    <div className={styles.card}>
-                        <div className={styles['row-head']}>
-                            <span style={{width: '50px'}}></span>
-                            <span>
+            <div>
+
+                <div className={styles.card}>
+                    <div className={styles['row-head']}>
+                        <span style={{width: '50px'}}></span>
+                        <span>
                             نام مرکز
                         </span>
-                            <span>
+                        <span>
                             آدرس
                         </span>
-                            <span>
+                        <span>
                             تلفن
                         </span>
-                            <span>
+                        <span>
                             شهر
                         </span>
-                            <span>
+                        <span>
                             استان
                         </span>
-                            <span>
+                        <span>
                             مرکز
                         </span>
-                        </div>
-                        {healthItem.centerItem.map((item, index) => (
-                            <div key={index} className={styles['row-content']}>
+                    </div>
+                    {props.items.map((item, i) => {
+                        return (
+                            <div key={i} className={styles['row-content']}>
                         <span className={styles.number}>
-                            {index+1}
+                            {i + 1}
                         </span>
                                 <div>
 <span>
                                 {item.centerName}
                             </span>
                                     <span>
-                                {item.address}
+                                {item.exactAddress}
                             </span>
                                     <span>
-                                <a href={`tel:${item.tel}`}>
-                                    {item.tel}
+                                <a href={`tel:${item.phoneNumber}`}>
+                                    {item.phoneNumber}
                                 </a>
                             </span>
                                     <span>
-                                {item.city}
+                                {item.addressGetResponseDto.cityInfo.name}
                             </span>
                                     <span>
-                                {item.state}
+                                {item.addressGetResponseDto.stateInfo.name}
                             </span>
                                     <span>
                                 {item.center}
                             </span>
                                 </div>
                             </div>
-                        ))}
-                    </div>
-
+                        )
+                    })}
                 </div>
 
-            ))}
+            </div>
+
         </Fragment>
     );
 };
