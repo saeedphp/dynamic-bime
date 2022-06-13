@@ -18,6 +18,7 @@
     display: flex;
     align-items: center;
     margin-bottom: .5rem;
+    width: 230px;
 }
 
 .link .item::before{
@@ -49,6 +50,11 @@
 
 .link .item:hover::after{
     width: 15px;
+}
+
+.link .item span{
+    margin: 0 auto;
+    text-align: center;
 }
 
 .link .item a{

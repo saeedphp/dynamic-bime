@@ -133,7 +133,7 @@ const HeaderTop = () => {
 
                                         <Fragment>
                                             <li>
-                                                <Link href="/panel/vendors">
+                                                <Link href="/panel/personel">
                                                     <a>
                                                         پنل پرسنل
                                                     </a>
