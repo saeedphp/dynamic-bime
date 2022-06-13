@@ -25,6 +25,7 @@ export async function getStaticProps() {
         }
     })
     const personelCat = (await res.json())['result']
+    console.log('personelCat', personelCat);
 
     const personelRes = await fetch(BASE_URL + 'api/v1.0/cms/personnelPanel/active?pageIndex=0&pageSize=20', {
         headers: {
@@ -32,6 +33,7 @@ export async function getStaticProps() {
         }
     })
     const personel = (await personelRes.json())['result']
+    console.log('personelRes', personelRes);
 
     return {
         props: {

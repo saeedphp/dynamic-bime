@@ -104,7 +104,7 @@ const ProductDetailPage = () => {
                                                        <Lamp/>
                                                     </span>
                                                     <a href={`#${data.title}`}>
-                                                        {data.title}-{i}
+                                                        {data.title}
                                                     </a>
                                                 </li>
                                             )
