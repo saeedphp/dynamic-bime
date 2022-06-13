@@ -4,6 +4,7 @@ import styles from './cities-filter.module.css';
 import Earth from "../../icons/earth";
 import ArrowDown from "../../icons/arrow-down";
 import {BASE_URL} from "../../../data/config";
+import IranMapData from '../../../data/IranMapData';
 
 const CitiesFilter = (props) => {
 
@@ -35,39 +36,27 @@ const CitiesFilter = (props) => {
             });
     }, []);
 
-    const [selected, setSelected] = useState('تهران');
-
-    const dropdownChangeHandler = (event) => {
-        props.onChangeFilter(event.target.value);
-        setSelected(selected);
-    };
-
-    const cityList = allCities();
-
     return (
         <>
             <div className={styles.wrapper}>
                 <Earth />
-                <select value={props.selected} onChange={dropdownChangeHandler}>
+                <select
+                    defaultValue={props.citys}
+                    onChange={props.Sitecity}
+                    onClick={props.ShowShahr}
+                >
                     <div>
                         <input placeholder="search" type="text"/>
                     </div>
-                    {states.map((city) => (
-                        <option key={city.id} value={city.name}>
-                            {city.name}
+                    {IranMapData.map((item) => (
+                        <option
+                            key={item.id}
+                            value={item.name}
+                        >
+                            {props.showCity ? `${item.name}` : `${props.citys}`}
                         </option>
                     ))}
                 </select>
-                {/*<span>
-                    {selected}
-                </span>
-                <ul>
-                    {cityList.map((city) => (
-                        <li value={city.city} key={city.id} onClick={() => setSelected(city.city)} >
-                            {city.city}
-                        </li>
-                    ))}
-                </ul>*/}
                 <span>
                     <ArrowDown />
                 </span>

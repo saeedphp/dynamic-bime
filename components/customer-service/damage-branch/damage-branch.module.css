@@ -34,9 +34,14 @@
     align-items: flex-start;
 }
 
-.map > div > svg path{
+.map > div > svg path {
     fill: rgba(207, 187, 212, 1);
+    stroke: #fff 1px;
+}
+.map > div > svg path:hover {
+    fill: rgb(102, 56, 114);
     stroke: #fff;
+    cursor: pointer;
 }
 
 @media (max-width: 768px) {

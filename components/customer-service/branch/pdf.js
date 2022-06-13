@@ -2,6 +2,7 @@ import styles from "./health-list.module.css";
 import React from "react";
 import Link from "next/link";
 import DownloadBranch from "../../icons/download-branch";
+import {BASE_URL} from "../../../data/config";
 
 const Pdf = (props) => {
     return (
@@ -11,7 +12,7 @@ const Pdf = (props) => {
                 <div className={styles['download-row']}>
                     {props.items.map((item, i) => {
                             return (
-                                <Link key={i} href={item.customFileGetResponseDto.url}>
+                                <Link key={i} href={BASE_URL + item.customFileGetResponseDto.url}>
                                     <a>
                                         <DownloadBranch/>
                                         <span>

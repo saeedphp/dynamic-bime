@@ -126,9 +126,9 @@ const FooterTop = ({data}) => {
                     </div>
                 </div>
                 <div className={`col-2 ${styles.item}`}>
-                    <h2 className={styles.title}>
+                    {/*<h2 className={styles.title}>
                         دسترسی سریع
-                    </h2>
+                    </h2>*/}
                     <ul>
                         {firstFooter.map((accessItem, i) => (
                             <li key={i}>
@@ -142,9 +142,9 @@ const FooterTop = ({data}) => {
                     </ul>
                 </div>
                 <div className={`col-2 ${styles.item}`}>
-                    <h2 className={styles.title}>
+                   {/* <h2 className={styles.title}>
                         خدمات بیمه ای
-                    </h2>
+                    </h2>*/}
                     <ul>
                         {secondFooter.map((serviceItem) => (
                             <li key={serviceItem.id}>
@@ -158,9 +158,9 @@ const FooterTop = ({data}) => {
                     </ul>
                 </div>
                 <div className={`col-2 ${styles.item}`}>
-                    <h2 className={styles.title}>
+                    {/*<h2 className={styles.title}>
                         قوانین و مقررات
-                    </h2>
+                    </h2>*/}
                     <ul>
                         {thirdFooter.map((ruleItem) => (
                             <li key={ruleItem.id}>

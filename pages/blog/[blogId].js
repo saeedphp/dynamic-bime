@@ -15,6 +15,8 @@ import bgHeader from "../../public/images/page-header.webp";
 import {BASE_URL} from "../../data/config";
 import {NextSeo} from "next-seo";
 import styles from "../../components/contactus/contact-form.module.css";
+import Lamp from "../../components/icons/product/lamp";
+import Card from "../../components/ui/card";
 
 const BlogDetailPage = () => {
 

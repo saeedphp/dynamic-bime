@@ -37,8 +37,8 @@ const BlogItem = (props) => {
                     {title}
                 </a>
             </Link>
-            <p>
-                {body}
+            <p dangerouslySetInnerHTML={{__html: body.slice(0,120,"...")}}>
+
             </p>
             <div className={styles.controls}>
                 <time>

@@ -82,6 +82,10 @@ const ProductDetailPage = () => {
         if (product.id == productId) currProduct = product;
     }
 
+    const filteredArr = insuranceInfo.filter((item) => {
+        return item.insuranceDetail.id === currProduct.id;
+    });
+
     if (currProduct != undefined)
         return (
             <Fragment>
@@ -94,21 +98,19 @@ const ProductDetailPage = () => {
                         <div className={styles.tab}>
                             <nav>
                                 <ul className={`productItem`}>
-                                    {insuranceInfo.map((data, i) => {
-                                        if (data.insuranceDetail.id === currProduct.id) {
-                                            return (
-                                                <li key={i} className={toggle === i ? 'active' : null} onClick={() => {
-                                                    toggleTab(i)
-                                                }}>
+                                    {filteredArr.map((data, i) => {
+                                        return (
+                                            <li key={i} className={toggle === i ? 'active' : null} onClick={() => {
+                                                toggleTab(i)
+                                            }}>
                                                     <span>
                                                        <Lamp/>
                                                     </span>
-                                                    <a href={`#${data.title}`}>
-                                                        {data.title}
-                                                    </a>
-                                                </li>
-                                            )
-                                        }
+                                                <a href={`#${data.title}`}>
+                                                    {data.title}
+                                                </a>
+                                            </li>
+                                        )
                                     })}
                                 </ul>
                             </nav>
@@ -130,7 +132,8 @@ const ProductDetailPage = () => {
                                                                 null
                                                             }
                                                             {data.description !== '' ?
-                                                                <div dangerouslySetInnerHTML={{__html: data.description}}>
+                                                                <div
+                                                                    dangerouslySetInnerHTML={{__html: data.description}}>
                                                                 </div> :
                                                                 null
                                                             }

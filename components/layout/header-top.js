@@ -6,14 +6,44 @@ import HeaderSearch from "../icons/header-search";
 import Phone from "../icons/phone";
 import HeaderLogin from "../icons/header-login";
 import HeaderArrow from "../icons/header-arrow";
-import {useState} from "react";
+import {Fragment, useEffect, useState} from "react";
 import Cookies from "universal-cookie";
 import {useRouter} from "next/router";
+import {BASE_URL} from "../../data/config";
 
 const HeaderTop = () => {
 
     const cookies = new Cookies();
     const token = cookies.get('token');
+
+    const [userInfo, setUserInfo] = useState([]);
+
+    useEffect(() => {
+        fetch(BASE_URL + "api/v1.0/security/users/authenticated", {
+            headers: {
+                'cultureLcid': 1065,
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(async response => {
+                const data = await response.json();
+
+                // // check for error response
+                // if (!response.result) {
+                //     // get error message from body or default to response statusText
+                //     const error = (data && data.message) || response.statusText;
+                //     return Promise.reject(error);
+                // }
+
+                setUserInfo(data.result);
+                console.log(userInfo);
+                // this.setState({ totalReactPackages: data.total })
+            })
+            .catch(error => {
+                // this.setState({ errorMessage: error.toString() });
+                console.error('There was an error!', error);
+            });
+    }, []);
 
     const [isShown, setIsShown] = useState(false);
     const [panel, setPanel] = useState(false);
@@ -78,13 +108,48 @@ const HeaderTop = () => {
                                     پنل کاربری
                                 </span>
                                 <ul className={`panelList ${styles.panelul} ${panel ? 'active' : ''}`}>
-                                    <li>
-                                        <Link href="/panel/personel">
-                                            <a>
-                                                پنل پرسنل
-                                            </a>
-                                        </Link>
-                                    </li>
+
+                                    {userInfo.accessLevel === "Personnel" &&
+                                        <li>
+                                            <Link href="/panel/personel">
+                                                <a>
+                                                    پنل پرسنل
+                                                </a>
+                                            </Link>
+                                        </li>
+                                    }
+
+                                    {userInfo.accessLevel === "Representative" &&
+                                        <li>
+                                            <Link href="/panel/vendors">
+                                                <a>
+                                                    پنل نمایندگی
+                                                </a>
+                                            </Link>
+                                        </li>
+                                    }
+
+                                    {userInfo.accessLevel === "SuperAdmin" &&
+
+                                        <Fragment>
+                                            <li>
+                                                <Link href="/panel/vendors">
+                                                    <a>
+                                                        پنل پرسنل
+                                                    </a>
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link href="/panel/vendors">
+                                                    <a>
+                                                        پنل نمایندگی
+                                                    </a>
+                                                </Link>
+                                            </li>
+                                        </Fragment>
+
+                                    }
+
                                     <li>
                                         <a onClick={submitHandler}>
                                             خروج

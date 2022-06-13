@@ -26,6 +26,10 @@ const Content = ({personelCat, personel}) => {
         setInputText(event.target.value);
     };
 
+    const filteredArr = personel.filter((item) => {
+        return item.personnelPanelCategoryGetResponse.id === personelCat.map((item) => (item.id));
+    });
+
 
 
     return (

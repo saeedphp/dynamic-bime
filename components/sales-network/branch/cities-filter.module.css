@@ -13,3 +13,7 @@
     display: flex;
     align-items: center;
 }
+
+.wrapper select {
+    min-width: 6rem;
+}

@@ -4,6 +4,7 @@ import styles from './health-filter.module.css';
 import Earth from "../../icons/earth";
 import ArrowDown from "../../icons/arrow-down";
 import {BASE_URL} from "../../../data/config";
+import IranMapData from '../../../data/IranMapData';
 
 const HealthFilter = (props) => {
 
@@ -40,15 +41,26 @@ const HealthFilter = (props) => {
     };
 
     const cityList = allCities();
+    // const showCity = props.showCity;
 
     return (
         <>
             <div className={styles.wrapper}>
                 <Earth />
-                <select value={props.selected} onChange={dropdownChangeHandler}>
-                    {states.map((city) => (
-                        <option key={city.id} value={city.name}>
-                            {city.name}
+                <select
+                    // value={props.selected}
+                    // onChange={dropdownChangeHandler}
+                    defaultValue={props.citys}
+                    onChange={props.Sitecity}
+                    onClick={props.ShowShahr}
+                >
+                    {IranMapData.map((item) => (
+                        <option
+                            key={item.id}
+                            value={item.name}
+                        >
+                            {props.showCity ? `${item.name}` : `${props.citys}`}
+                            {/* {city.name} */}
                         </option>
                     ))}
                 </select>

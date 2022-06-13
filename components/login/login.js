@@ -25,6 +25,37 @@ const Login = () => {
         setShown(shown ? false : true);
     };
 
+    const [validate, setValidate] = useState(false);
+
+    const [userInfo, setUserInfo] = useState([]);
+
+    useEffect(() => {
+        fetch(BASE_URL + "api/v1.0/security/users/authenticated", {
+            headers: {
+                'cultureLcid': 1065,
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(async response => {
+                const data = await response.json();
+
+                // // check for error response
+                // if (!response.result) {
+                //     // get error message from body or default to response statusText
+                //     const error = (data && data.message) || response.statusText;
+                //     return Promise.reject(error);
+                // }
+
+                setUserInfo(data.result);
+                console.log(userInfo);
+                // this.setState({ totalReactPackages: data.total })
+            })
+            .catch(error => {
+                // this.setState({ errorMessage: error.toString() });
+                console.error('There was an error!', error);
+            });
+    }, []);
+
     const submitHandler = async (e) => {
         e.preventDefault();
 
@@ -45,17 +76,26 @@ const Login = () => {
                 const data = await response.json();
 
                 // setRecord(data.result);
-                // console.log(data);
+                 //console.log(data);
                 cookies.set('token', data.accessToken.token, { path: '/' });
                 //console.log(cookies.get('token'));
-                router.push("/panel/personel");
-
+                if (userInfo.accessLevel === "Personnel"){
+                    router.push("/panel/personel");
+                }else if (userInfo.accessLevel === "Representative"){
+                    router.push("/panel/vendors");
+                } else if (userInfo.accessLevel === "SuperAdmin"){
+                    router.push("/panel/personel");
+                }
             })
             .catch(error => {
+                setValidate(!validate);
                 // this.setState({ errorMessage: error.toString() });
-                console.error('There was an error!', error);
+                console.error('There was an errorrrr!', error);
             });
     };
+
+
+
 
     /*const [userInfo, setUserInfo] = useState([]);
 
@@ -98,7 +138,11 @@ const Login = () => {
                         فرم ورود
                     </h2>
                     <form onSubmit={submitHandler}>
-
+                        {validate ? (
+                            <p className="login_error">
+                                نام کاربری یا رمز عبور اشتباه می باشد!
+                            </p>
+                        ) : null}
                         <div className={styles.controls}>
                             <label htmlFor="username">
                                 نام کاربری

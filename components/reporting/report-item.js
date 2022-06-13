@@ -108,7 +108,7 @@ const ReportItem = () => {
                                   </span>
                                                             </a>
                                                             <Card className={styles.txt}>
-                                                                <a href="#">
+                                                                <a href={BASE_URL + item.customFileGetResponse.url}>
                                                                     {item.title}
                                                                 </a>
                                                             </Card>

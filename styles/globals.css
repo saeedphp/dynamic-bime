@@ -663,6 +663,15 @@ input[type=radio]{
   border-bottom: none !important;
 }
 
+.login_error{
+  color: #d53e3e;
+  background: #f5c3c3;
+  border-radius: 2rem;
+  padding: 9px 7px;
+  text-align: center;
+  font-size: 13px;
+}
+
 @media (max-width: 768px){
   .error_page{
     padding: 0 1rem;
@@ -720,9 +729,9 @@ input[type=radio]{
 }
 
 @media (min-width: 768px) {
-  .slick-slide{
+/*  .slick-slide{
     transform: scale(.69);
-  }
+  }*/
 
   .slick-slide.slick-current{
     transform: scale(1) !important;

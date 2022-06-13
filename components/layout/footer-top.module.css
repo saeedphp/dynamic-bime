@@ -2,7 +2,7 @@
     display: flex;
     width: 100%;
     height: auto;
-    padding: 0rem 4rem;
+    padding: 2rem 4rem;
 }
 
 .item {
@@ -20,6 +20,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.footer-top .item ul li:first-child{
+    font-size: 1.2rem;
+    color: #403C49;
+    font-weight: 600;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.footer-top .item ul li:first-child::after{
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    background: #6F2A82;
+    width: 20%;
+    height: 4px;
+    display: block;
+    right: 0;
+    border-radius: 1px;
 }
 
 .logo span {

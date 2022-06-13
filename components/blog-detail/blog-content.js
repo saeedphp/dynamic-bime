@@ -11,8 +11,7 @@ const BlogContent = (props) => {
                 <h2 className={styles.title}>
                     {title}
                 </h2>
-                <p className={styles.desc}>
-                    {body}
+                <p className={styles.desc} dangerouslySetInnerHTML={{__html: body}}>
                 </p>
             </div>
         </Fragment>
