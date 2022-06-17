@@ -1,0 +1,39 @@
+.renew{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 2rem 4rem;
+}
+
+.renew form{
+    width: 320px;
+    margin: auto;
+}
+
+.renew .controls{
+    width: 100%;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.renew .controls label{
+    color: #6F2A82;
+    margin-bottom: 0.5rem;
+}
+
+.renew .controls input{
+    background: rgba(226, 212, 230, 0.24);
+    border: 2px solid rgba(207, 187, 213, 0.82);
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 0.8rem;
+}
+
+.renew .controls select{
+    background: rgba(226, 212, 230, 0.24);
+    border: 2px solid rgba(207, 187, 213, 0.82);
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 0.8rem;
+}

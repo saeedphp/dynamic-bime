@@ -1,21 +1,12 @@
 import {Fragment} from "react";
-import {NextSeo} from "next-seo";
-import PageHeader from "../../components/ui/page-header";
-import bgHeader from "../../public/images/page-header.webp";
+import Renewagentlicense from "../../components/panel/vendors/renewagentlicense";
 
-const Renewagentlicense = () => {
+const RenewagentlicensePage = () => {
     return (
         <Fragment>
-            <NextSeo title="تمدید پروانه نمایندگی">
-
-            </NextSeo>
-            <PageHeader title="تمدید پروانه نمایندگی" pageTitle="پنل نمایندگی" pageLink="" bg={bgHeader} />
-            <section>
-                <iframe id="iframe1" name="iframe1" width="100%" height="1000px" frameBorder="0"
-                        src="https://samfa.armanins.com/samfaproject/bpmexpertengine/AP_AgancyContinuation.aspx" allowTransparency="true"></iframe>
-            </section>
+            <Renewagentlicense />
         </Fragment>
     )
 };
 
-export default Renewagentlicense;
+export default RenewagentlicensePage;
