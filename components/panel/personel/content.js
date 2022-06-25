@@ -4,7 +4,6 @@ import PanelDownload from "../../ui/panel-download";
 import News from "../../icons/panel/personel/news";
 import Image from "next/image";
 import mockup from "../../../public/images/panel/panel-mockup.png";
-import {getAllPersonelData} from "../../../data/personel-panel";
 import Card from "../../ui/card";
 import Links from "./links";
 import search from '../../../public/images/search.png';
@@ -18,19 +17,11 @@ const Content = ({personelCat, personel}) => {
         setToggle(index);
     };
 
-    const personelData = getAllPersonelData();
-
     const [inputText, setInputText] = useState("");
 
     const onChange = (event) => {
         setInputText(event.target.value);
     };
-
-    const filteredArr = personel.filter((item) => {
-        return item.personnelPanelCategoryGetResponse.id === personelCat.map((item) => (item.id));
-    });
-
-
 
     return (
         <Fragment>
@@ -47,7 +38,7 @@ const Content = ({personelCat, personel}) => {
                                 <span>
                                     <News/>
                                 </span>
-                                        {item.title}
+                                        {item.title} - {item.id}
                                     </a>
                                 </li>
                                 ))}
@@ -98,7 +89,7 @@ const Content = ({personelCat, personel}) => {
                                         <div id={item.title} className={`personel_container ${toggle === i ? 'active' : null}`} key={i}>
                                             <div key={i} className={`${styles.item}`}>
                                                 <p>
-                                                    {item.title}
+                                                    {item.title} - <br /> catId: {item.personnelPanelCategoryGetResponse.id} - <br /> id: {item.id}
                                                 </p>
                                                 <time>
                                                     {new Date(item.insertTime).toLocaleDateString('fa-IR', {
