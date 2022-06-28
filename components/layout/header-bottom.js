@@ -47,7 +47,7 @@ const HeaderBottom = () => {
                         {menu.filter((item) => (item.parentId === null && item.firstFooter === false && item.secendFooter === false && item.thirdFooter === false))
                             .map((menuItem) => (
                             <li key={menuItem.id}>
-                                <Link href={`/${menuItem.url}`}>
+                                <Link href={`${menuItem.url}`}>
                                     <a className={menuItem.children.length !== 0 && 'has-children'}>
                                         {menuItem.title}
                                     </a>
@@ -55,7 +55,7 @@ const HeaderBottom = () => {
                                 {menuItem.children && <ul className={styles.subMenu}>
                                     {menuItem.children.map((item,index) => (
                                         <li key={index}>
-                                            <Link href={`/${item.url}`}>
+                                            <Link href={`${item.url}`}>
                                                 <a>
                                                     {item.title}
                                                 </a>

@@ -4,9 +4,8 @@ import Image from "next/image";
 import imgPath from "../../public/images/logo.png";
 import HeaderSearch from "../icons/header-search";
 import Phone from "../icons/phone";
-import HeaderLogin from "../icons/header-login";
 import HeaderArrow from "../icons/header-arrow";
-import {Fragment, useEffect, useState} from "react";
+import {Fragment, useEffect, useState, useRef} from "react";
 import Cookies from "universal-cookie";
 import {useRouter} from "next/router";
 import {BASE_URL} from "../../data/config";
@@ -94,8 +93,8 @@ const HeaderTop = () => {
                     <HeaderSearch onClick={toggle}/>
                     <div className={`h-search ${styles.search__form} ${isShown ? 'active' : ''}`}>
                         <div className={styles.wrapper}>
-                            <form role="search" method="get" className="search-form" action="">
-                                    <input type="text" placeholder="جستجو…" name="search" />
+                            <form role="search" method="get" className="search-form">
+                                    <input type="text" id="search" placeholder="جستجو…" name="search" />
                             </form>
                         </div>
                     </div>
