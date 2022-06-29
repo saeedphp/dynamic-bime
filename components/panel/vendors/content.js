@@ -15,6 +15,7 @@ import {BASE_URL} from "../../../data/config";
 const Content = ({vendorsCat, vendors}) => {
 
     const [toggle, setToggle] = useState(0);
+    const [chooseTab, setChooseTab] = useState(1);
 
     const toggleTab = (index) => {
         setToggle(index);
@@ -47,8 +48,6 @@ const Content = ({vendorsCat, vendors}) => {
             });
     }, []);
 
-    const personelData = getAllPersonelData();
-
     const [inputText, setInputText] = useState("");
 
     const onChange = (event) => {
@@ -76,7 +75,8 @@ const Content = ({vendorsCat, vendors}) => {
                             </li>
                             {vendorsCat.map((item, i) => (
                                 <li key={i} className={`personel_item ${toggle === i ? 'active' : null}`} onClick={() => {
-                                    toggleTab(i)
+                                    toggleTab(i);
+                                        setChooseTab(item.id)
                                 }}>
                                     <a href={`#${item.title}`}>
                                 <span>
@@ -119,17 +119,16 @@ const Content = ({vendorsCat, vendors}) => {
                     </div>
 
                     <div className={styles.body}>
-                        {vendorsCat.map((vendorCategory, i) => (
-                            <div key={i}>
+                            <div>
                                 {vendors.filter((item) => (
-                                    item.representativePanelCategoryGetResponse.id === vendorCategory.id
+                                    item.representativePanelCategoryGetResponse.id === chooseTab
                                 )).filter((item) => {
                                     return (
                                         item.title.includes(inputText)
                                     )
                                 })
                                     .map((item, i) => (
-                                        <div id={item.title} className={`personel_container ${toggle === i ? 'active' : null}`} key={i}>
+                                        <div id={item.title} className={`personel_container active`} key={i}>
                                             <div key={i} className={`${styles.item}`}>
                                                 <p>
                                                     {item.title}
@@ -148,7 +147,6 @@ const Content = ({vendorsCat, vendors}) => {
                                         </div>
                                     ))}
                             </div>
-                        ))}
                     </div>
 
                 </div>

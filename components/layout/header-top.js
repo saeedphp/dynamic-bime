@@ -93,7 +93,7 @@ const HeaderTop = () => {
                     <HeaderSearch onClick={toggle}/>
                     <div className={`h-search ${styles.search__form} ${isShown ? 'active' : ''}`}>
                         <div className={styles.wrapper}>
-                            <form role="search" method="get" className="search-form">
+                            <form method="get" className="search-form">
                                     <input type="text" id="search" placeholder="جستجو…" name="search" />
                             </form>
                         </div>

@@ -1,4 +1,4 @@
-import {Fragment, useState} from "react";
+import {Fragment, useEffect, useState} from "react";
 import styles from './content.module.css';
 import PanelDownload from "../../ui/panel-download";
 import News from "../../icons/panel/personel/news";
@@ -12,6 +12,7 @@ import {BASE_URL} from "../../../data/config";
 const Content = ({personelCat, personel}) => {
 
     const [toggle, setToggle] = useState(0);
+    const [choosedCat, setChoosedCat] = useState(1);
 
     const toggleTab = (index) => {
         setToggle(index);
@@ -22,7 +23,6 @@ const Content = ({personelCat, personel}) => {
     const onChange = (event) => {
         setInputText(event.target.value);
     };
-
     return (
         <Fragment>
 
@@ -32,13 +32,14 @@ const Content = ({personelCat, personel}) => {
                         <ul>
                             {personelCat.map((item, i) => (
                                 <li key={i} className={`personel_item ${toggle === i ? 'active' : null}`} onClick={() => {
-                                    toggleTab(i)
+                                    toggleTab(i);
+                                    setChoosedCat(item.id);
                                 }}>
                                     <a href={`#${item.title}`}>
                                 <span>
                                     <News/>
                                 </span>
-                                        {item.title} - {item.id}
+                                        {item.title}
                                     </a>
                                 </li>
                                 ))}
@@ -76,20 +77,20 @@ const Content = ({personelCat, personel}) => {
 
                     <div className={styles.body}>
 
-                        {personelCat.map((personelCategory, i) => (
-                            <div key={i}>
+
+                            <div >
                                 {personel.filter((item , i) => (
-                                    item.personnelPanelCategoryGetResponse.id === personelCategory.id
+                                    item.personnelPanelCategoryGetResponse.id == choosedCat
                                 )).filter((item) => {
                                     return (
                                         item.title.includes(inputText)
                                     )
                                 })
                                     .map((item, i) => (
-                                        <div id={item.title} className={`personel_container ${toggle === i ? 'active' : null}`} key={i}>
+                                        <div id={item.title} className={`personel_container active`} key={i}>
                                             <div key={i} className={`${styles.item}`}>
                                                 <p>
-                                                    {item.title} - <br /> catId: {item.personnelPanelCategoryGetResponse.id} - <br /> id: {item.id}
+                                                    {item.title}
                                                 </p>
                                                 <time>
                                                     {new Date(item.insertTime).toLocaleDateString('fa-IR', {
@@ -105,7 +106,7 @@ const Content = ({personelCat, personel}) => {
                                         </div>
                                     ))}
                             </div>
-                        ))}
+
 
 
 
