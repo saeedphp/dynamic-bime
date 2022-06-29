@@ -5,11 +5,14 @@
     border-radius: 25px;
     padding: 1rem;
     position: relative;
+    width: 25%;
 }
 
 .items .imageWrapper {
     border-radius: 15px;
     overflow: hidden;
+    height: 294px;
+    max-height: 200px;
 }
 
 .items .imageWrapper span {
@@ -79,6 +82,7 @@
 
     .items {
         margin: 1rem;
+        width: 100%;
     }
 
     .items p {
