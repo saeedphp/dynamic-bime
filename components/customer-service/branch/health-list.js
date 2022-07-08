@@ -53,7 +53,7 @@ const HealthList = (props) => {
                                 {item.centerName}
                             </span>
                                     <span>
-                                {item.exactAddress}
+                                {item.addressGetResponseDto.exactAddress}
                             </span>
                                     <span>
                                 <a href={`tel:${item.phoneNumber}`}>

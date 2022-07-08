@@ -9,6 +9,7 @@ import {Fragment, useEffect, useState, useRef} from "react";
 import Cookies from "universal-cookie";
 import {useRouter} from "next/router";
 import {BASE_URL} from "../../data/config";
+import Search from "./search";
 
 const HeaderTop = () => {
 
@@ -69,6 +70,11 @@ const HeaderTop = () => {
         //window.location.reload();
     };
 
+    const findSearchHandler = (text) => {
+        const fullPath = `/posts/${text}`;
+        router.push(fullPath);
+    }
+
         return (
         <div className={styles['header-row__top']}>
             <div className={`row ${styles.item} ${styles.logo}`}>
@@ -93,9 +99,7 @@ const HeaderTop = () => {
                     <HeaderSearch onClick={toggle}/>
                     <div className={`h-search ${styles.search__form} ${isShown ? 'active' : ''}`}>
                         <div className={styles.wrapper}>
-                            <form method="get" className="search-form">
-                                    <input type="text" id="search" placeholder="جستجو…" name="search" />
-                            </form>
+                            <Search />
                         </div>
                     </div>
                 </div>

@@ -25,6 +25,8 @@ const Renewagentlicense = () => {
     const [taxPictureId, setTaxPictureId] = useState('');
     const [taxPaymentPictureId, setTaxPaymentPictureId] = useState('');
     const [rentPictureId, setRentPictureId] = useState('');
+    const [success, setSuccess] = useState(null);
+    const [error, setError] = useState(null);
 
     const nameChangeHandler = (e) => {
         setFirstName(e.target.value);
@@ -82,37 +84,87 @@ const Renewagentlicense = () => {
         setRentPictureId(e.target.value);
     }
 
-    const submitHandler = async (e) => {
+    let handleSubmit = async (e) => {
         e.preventDefault();
+        try {
+            let res = await fetch("https://bimeharman.faradns.ir/api/v1.0/webservice/home/agencyRenewLicense/", {
+                method: "POST",
+                headers: {
+                    'accept': '*/*',
+                    'Authorization': 'Bearer eyJhbGciOiJBMTI4S1ciLCJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwidHlwIjoiSldUIn0.-cdLySvaVds2qj_4S8KOYyLqxvfMLF5v-4pSsKEZr-klMTJl1EUVuQ.zdFQZD9QVh-op7AUikOVvA.xAr7QhJobnPb8-boAzAVL-U1zgDEwuBLMqmK9HWYTRzU3n5St2OQddq4YQknz7DiEqRCKSHCLj77_kV7rvwLsdUi4ypOJr3WOtMGn0VG3dL_QsCcN5X1kdZOQhU92qCQB_q1dffYkNDDBoYLoVkYfi_j8K7TwTl7_PIAvUR76Ci4o4INmhe8Q0EQ2EQrUlKXo7BHxZhi94u1nmQAPPEW60czpm9abTGZ1chTQOPoSZ7ooMO8nIssDL2citxmcTT9vIWN1fszg4M_FAhipFJM1xlMP4A5v-vBqr-CfFiIi1uD8aeWbXfwNcRJuuSLkg4TrIumkgE3OX7mcIY0UI9UueD5VUzbqPYSSMl2YyFRjOYuzlVxVqk6oXwXMXOli3PU-U00J3gFyExyXec5WACv8jqcT368BmQkI9irQi_f1K1u26WsyRN6JlPY3OPyKLDvPnvnQk04BC_Ffub13L5u8_94Z_vYhb3_Ff_qlTVK_P4.sod2HUIbj_qEWIpLBrUjyg',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    'firstName': 'string',
+                    'lastName': 'string',
+                    'nationalCode': 'string',
+                    'agentCode': 'string',
+                    'phoneNumber': 'string',
+                    'branchId': 90,
+                    'description': 'string',
+                    'personalPictureId': 90,
+                    'expiredLicensePictureId': 90,
+                    'ezharTaxPictureId': 90,
+                    'ezharTaxPaymentPictureId': 90,
+                    'taxPictureId': 90,
+                    'taxPaymentPictureId': 90,
+                    'rentPictureId': 90
+                })
+            });
+            let resJson = await res.json();
+            if (res.status === 200) {
+               console.log('data was sent successfully: ' + res);
+            } else {
+                console.log("Some error occured: " + resJson);
+            }
+        } catch (err) {
+            console.log("Some error: ");
+        }
+    };
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        setError(null);
+        setSuccess(null);
         console.log("test begin")
-        await fetch('https://bimeharman.faradns.ir/api/v1.0/webservice/home/agencyRenewLicense/', {
+        fetch('https://bimeharman.faradns.ir/api/v1.0/webservice/home/agencyRenewLicense/', {
             method: 'POST',
             headers: {
                 'accept': '*/*',
+                'Authorization': 'Bearer eyJhbGciOiJBMTI4S1ciLCJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwidHlwIjoiSldUIn0.-cdLySvaVds2qj_4S8KOYyLqxvfMLF5v-4pSsKEZr-klMTJl1EUVuQ.zdFQZD9QVh-op7AUikOVvA.xAr7QhJobnPb8-boAzAVL-U1zgDEwuBLMqmK9HWYTRzU3n5St2OQddq4YQknz7DiEqRCKSHCLj77_kV7rvwLsdUi4ypOJr3WOtMGn0VG3dL_QsCcN5X1kdZOQhU92qCQB_q1dffYkNDDBoYLoVkYfi_j8K7TwTl7_PIAvUR76Ci4o4INmhe8Q0EQ2EQrUlKXo7BHxZhi94u1nmQAPPEW60czpm9abTGZ1chTQOPoSZ7ooMO8nIssDL2citxmcTT9vIWN1fszg4M_FAhipFJM1xlMP4A5v-vBqr-CfFiIi1uD8aeWbXfwNcRJuuSLkg4TrIumkgE3OX7mcIY0UI9UueD5VUzbqPYSSMl2YyFRjOYuzlVxVqk6oXwXMXOli3PU-U00J3gFyExyXec5WACv8jqcT368BmQkI9irQi_f1K1u26WsyRN6JlPY3OPyKLDvPnvnQk04BC_Ffub13L5u8_94Z_vYhb3_Ff_qlTVK_P4.sod2HUIbj_qEWIpLBrUjyg',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                firstName,
-                lastName,
-                nationalCode,
-                agentCode,
-                phoneNumber,
-                branchId,
-                description,
-                personalPictureId,
-                expiredLicensePictureId,
-                ezharTaxPictureId,
-                ezharTaxPaymentPictureId,
-                taxPictureId,
-                taxPaymentPictureId,
-                rentPictureId
-            }),
-        }).then(async response => {
-            const data = await response.json();
-            console.log(data);
-        }).catch(error => {
-            console.log('error: ', error);
+                'firstName': 'string',
+                'lastName': 'string',
+                'nationalCode': 'string',
+                'agentCode': 'string',
+                'phoneNumber': 'string',
+                'branchId': 90,
+                'description': 'string',
+                'personalPictureId': 90,
+                'expiredLicensePictureId': 90,
+                'ezharTaxPictureId': 90,
+                'ezharTaxPaymentPictureId': 90,
+                'taxPictureId': 90,
+                'taxPaymentPictureId': 90,
+                'rentPictureId': 90
+            })
+        }).then(response => {
+            if (response === 200) {
+                throw new Error('عملیات مورد نظر اجرا نشد!');
+            } else if (response !== 200) {
+                throw new Error('با موفقیت ارسال شد')
+            }
+            setSuccess(success.message);
+            return response.json();
+        })
+            .then((response) => response.json())
+            .then(console.log).catch((error) => {
+            setError(error.message);
         });
+
+        console.log("test end")
 
     }
 
@@ -128,7 +180,6 @@ const Renewagentlicense = () => {
                         تمدید فرم نمایندگی
                     </Title>
                     <form method="post" id="myform" onSubmit={submitHandler}>
-
                         <div className={styles.controls}>
                             <label htmlFor="firstName">
                                 نام
@@ -281,6 +332,9 @@ const Renewagentlicense = () => {
                         <Button>
                             ارسال درخواست
                         </Button>
+
+                        {error && <p className="success_webservice">{error}</p>}
+                        {success && <p>{success}</p>}
 
                     </form>
                 </Card>

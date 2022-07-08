@@ -17,7 +17,7 @@ const Branch = (props) => {
     const [pdf, setPdf] = useState([]);
 
     useEffect(() => {
-        fetch(BASE_URL + "api/v1.0/cms/healthCenter/active?pageIndex=0&pageSize=10", {
+        fetch(BASE_URL + "api/v1.0/cms/healthCenter/active?pageIndex=0&pageSize=50", {
             headers: {
                 'cultureLcid': 1065,
             }

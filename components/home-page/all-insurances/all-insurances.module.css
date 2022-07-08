@@ -54,6 +54,12 @@
     left: 0;
     right: 0;
     margin: auto;
+    display: flex;
+}
+
+.insurance .iconBg > span{
+    width: 40px !important;
+    margin: auto !important;
 }
 
 /*.insurance .iconBg:hover{

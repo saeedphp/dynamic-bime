@@ -33,19 +33,12 @@ const Intro = () => {
     const images = [pic1, pic2, pic3, pic4, pic5, pic6, pic7, pic8];
 
     const settings = {
-        className: "center",
-        centerMode: true,
-        infinite: true,
-        loop: true,
         dots: true,
-        centerPadding: "60px",
+        nav: true,
+        infinite: true,
+        speed: 500,
         slidesToShow: 5,
-        slidesToScroll: 1,
-        autoplay: true,
-        speed: 2000,
-        draggable: true,
-        autoplaySpeed:2000,
-        rtl: false,
+        slidesToScroll: 4,
         responsive: [
             {
                 breakpoint: 1024,
@@ -79,7 +72,7 @@ const Intro = () => {
             <NextSeo title="بیمه آرمان در یک نگاه">
 
             </NextSeo>
-            <PageHeader title="بیمه آرمان در یک نگاه" pageTitle="درباره ما" pageLink="/about" bg={bgHeader} />
+            <PageHeader title="بیمه آرمان در یک نگاه" pageTitle="درباره ما" pageLink="/about/intro" bg={bgHeader} />
 
             <section className={styles.intro}>
                 <div className={styles.init}>
@@ -246,7 +239,7 @@ const Intro = () => {
                     </Title>
                     <Slider {...settings}>
                         {images.map((img, idx) => (
-                            <div key={idx} className={styles.tandis}>
+                            <div key={idx}>
                                 <Image src={img} alt="image" layout={"fill"} />
                             </div>
                         ))}
@@ -257,13 +250,13 @@ const Intro = () => {
                     <Title className={styles.title}>
                         لوح تقدیر و گواهینامه های بیمه آرمان
                     </Title>
-                    <Slider {...settings}>
+                    {/*<Slider {...settings}>
                         {images.map((img, idx) => (
-                            <div key={idx} className={styles.tandis}>
+                            <div key={idx}>
                                 <Image src={img} alt="image" layout={"fill"} />
                             </div>
                         ))}
-                    </Slider>
+                    </Slider>*/}
                 </div>
 
             </section>

@@ -79,13 +79,14 @@ const Login = () => {
                  //console.log(data);
                 cookies.set('token', data.accessToken.token, { path: '/' });
                 //console.log(cookies.get('token'));
-                if (userInfo.accessLevel === "Personnel"){
+                router.push("/");
+                /*if (userInfo.accessLevel === "Personnel"){
                     router.push("/panel/personel");
                 }else if (userInfo.accessLevel === "Representative"){
                     router.push("/panel/vendors");
                 } else if (userInfo.accessLevel === "SuperAdmin"){
                     router.push("/panel/personel");
-                }
+                }*/
             })
             .catch(error => {
                 setValidate(!validate);
@@ -93,39 +94,6 @@ const Login = () => {
                 console.error('There was an errorrrr!', error);
             });
     };
-
-
-
-
-    /*const [userInfo, setUserInfo] = useState([]);
-
-    useEffect(() => {
-        fetch(BASE_URL + "api/v1.0/security/users/authenticated", {
-            headers: {
-                'accept': '*!/!*',
-                'Authorization': 'Bearer eyJhbGciOiJBMTI4S1ciLCJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwidHlwIjoiSldUIn0.HPtfpOMB0aP-uaLTEgZJXUYQCFNl_agQFQ5sMP8QaSbvcy4ui_Xbiw.3JmW5tpmpOMAPLLia-b01g.0eA-h7tP8aOtL0o1PvChtWkmKVZpkjgNSpcYIyyk2JHjp6OtLy6MSiqVGI6pASy1nZAhWoQQ7rSosaNEh0WEz4q2DfUw3bxehO7qlan4HW5wNSH-h6-GEXri2L6UMR3fvZavfKxMFtNzTFs4KEQqJCXvAJAW5ovye1IOJE20YniHUreEq6uXyFVMIoKLw9XSlRyGtbCIyL7TjUDdLEL-VA4L8llHojPwXEhS6uKNHTZ_KdmuDxV7Qg-UtjqUdCBrCjeBPsuERa_fy33mCIgNbuy-98-2BjVh26-7CpCCrUWIglJS2OFShfsiOcMdwVG6Pz4bCXfqTDE7LihtmNUlh0nVlu3q1pGHAvTbLOcrZzey0WC2ZPVpdddHZkSzlEbacUh6waS-Ww7nhOSkr9rLoRTy5rV8hQHDfbp8RG2woyq_LxgoIguYKmLkhaADsGVFurXYOJv0MERR2M21yu7W7GZzEE0vwLNi9JI8MkNx4Ls.j3wLNh1Io6Z01t4YMn-VvQ'
-            }
-        })
-            .then(async response => {
-                const data = await response.json();
-
-                // // check for error response
-                // if (!response.result) {
-                //     // get error message from body or default to response statusText
-                //     const error = (data && data.message) || response.statusText;
-                //     return Promise.reject(error);
-                // }
-
-                setUserInfo(data.result);
-                console.log('user info: ' + setUserInfo);
-                // this.setState({ totalReactPackages: data.total })
-            })
-
-            .catch(error => {
-                // this.setState({ errorMessage: error.toString() });
-                console.error('There was an error!', error);
-            });
-    }, []);*/
 
     return (
         <Fragment>

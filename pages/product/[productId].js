@@ -5,7 +5,6 @@ import bgHeader from "../../public/images/page-header.webp";
 import PageHeader from "../../components/ui/page-header";
 import {NextSeo} from "next-seo";
 import {BASE_URL} from "../../data/config";
-import ProductDetail from "../../components/product-detail/product-detail";
 import Lamp from "../../components/icons/product/lamp";
 import styles from "../../components/products/insurance/insurance.module.css";
 import Card from "../../components/ui/card";
@@ -43,7 +42,7 @@ const ProductDetailPage = () => {
     const [insuranceInfo, setInsuranceInfo] = useState([]);
 
     useEffect(() => {
-        fetch(BASE_URL + "api/v1.0/cms/insuranceInfo/active?pageIndex=0&pageSize=10", {
+        fetch(BASE_URL + "api/v1.0/cms/insuranceInfo/active?pageIndex=0&pageSize=50", {
             headers: {
                 'cultureLcid': 1065,
             }
@@ -114,34 +113,31 @@ const ProductDetailPage = () => {
                                     })}
                                 </ul>
                             </nav>
-                            {/*<Image src={imgPath} alt="image" layout={"fill"} />*/}
                         </div>
                         <div className={`${styles.info}`}>
                             <Card>
                                 <ul>
-                                    {insuranceInfo.map((data, i) => {
-                                        if (data.insuranceDetail.id === currProduct.id) {
-                                            return (
-                                                <Fragment key={i}>
-                                                    {toggle === i ? (
-                                                        <li id={data.title}>
-                                                            {data.title !== '' ?
-                                                                <Title className={styles.title}>
-                                                                    {data.title}
-                                                                </Title> :
-                                                                null
-                                                            }
-                                                            {data.description !== '' ?
-                                                                <div
-                                                                    dangerouslySetInnerHTML={{__html: data.description}}>
-                                                                </div> :
-                                                                null
-                                                            }
-                                                        </li>
-                                                    ) : null}
-                                                </Fragment>
-                                            )
-                                        }
+                                    {filteredArr.map((data, i) => {
+                                        return (
+                                            <Fragment key={i}>
+                                                {toggle === i ? (
+                                                    <li id={data.title}>
+                                                        {data.title !== '' ?
+                                                            <Title className={styles.title}>
+                                                                {data.title}
+                                                            </Title> :
+                                                            null
+                                                        }
+                                                        {data.description !== '' ?
+                                                            <div
+                                                                dangerouslySetInnerHTML={{__html: data.description}}>
+                                                            </div> :
+                                                            null
+                                                        }
+                                                    </li>
+                                                ) : null}
+                                            </Fragment>
+                                        )
                                     })}
                                 </ul>
                             </Card>

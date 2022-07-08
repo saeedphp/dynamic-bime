@@ -672,6 +672,15 @@ input[type=radio]{
   font-size: 13px;
 }
 
+.success_webservice{
+  background: #d3f7d3;
+  color: #12bf12;
+  border-radius: 1rem;
+  padding: 0.2rem 1rem;
+  text-align: center;
+  border: 1px solid #12bf12;
+}
+
 @media (max-width: 768px){
   .error_page{
     padding: 0 1rem;
@@ -733,7 +742,7 @@ input[type=radio]{
     transform: scale(.69);
   }*/
 
-  .slick-slide.slick-current{
+/*  .slick-slide.slick-current{
     transform: scale(1) !important;
     position: relative;
     z-index: 99;
@@ -755,7 +764,7 @@ input[type=radio]{
 
   .slick-active + .slick-active + .slick-active + .slick-active + .slick-active{
     transform: scale(.79) translateX(-200px);
-  }
+  }*/
 }
 
 @media (min-width: 769px) and (max-width: 1200px) {
