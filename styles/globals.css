@@ -681,6 +681,17 @@ input[type=radio]{
   border: 1px solid #12bf12;
 }
 
+.search_form{
+  display: flex;
+  align-items: center;
+}
+
+.search_form button{
+  background: #e2d4e6;
+  border: 0;
+  color: #6f2a82;
+}
+
 @media (max-width: 768px){
   .error_page{
     padding: 0 1rem;

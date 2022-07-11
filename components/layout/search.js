@@ -19,7 +19,7 @@ const Search = ({search, generatedUrl}) => {
     }, [changeRoute])
     return (
       <>
-          <form>
+          <form className="search_form">
               <input type="text" value={val} onChange={e => setVal(e.target.value)} id="search" placeholder="جستجو…" name="search" />
               <button onClick={e => {
                   e.preventDefault()
@@ -37,7 +37,7 @@ const Search = ({search, generatedUrl}) => {
               } 
               
               }>
-                  submit
+                  ارسال
               </button>
           </form>
       </>
