@@ -1,6 +1,9 @@
 const initialState = {
-    searchResults: {},
-    generatedUrl: {}
+    searchResults: {
+        blogPosts: [],
+        insurances: []
+    },
+    generatedUrl: ''
 };
 
 export default function searchState(state = initialState, action){
@@ -8,9 +11,11 @@ export default function searchState(state = initialState, action){
 
     switch (type){
         case 'cms/common/Search':
+            
             return {
                 ...state,
-                searchResults: payload?.result
+                searchResults: payload?.result,
+                generatedUrl: payload.url.split('?')[1]
             }
         default:
             return state
