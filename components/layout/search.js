@@ -21,7 +21,9 @@ const Search = ({search, generatedUrl}) => {
     // }, [changeRoute])
     useEffect(() => {
        
+           if(generatedUrl.length !== 0){
             router.push('/search' + generatedUrl, undefined, {shallow: true})
+           }
         
     }, [generatedUrl])
     return (
