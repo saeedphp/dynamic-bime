@@ -7,7 +7,7 @@ const Rules = ({rules}) => {
     );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const res = await fetch(BASE_URL + "api/v1.0/cms/generalRule/active?pageIndex=0&pageSize=12", {
         headers: {
             'cultureLcid': 1065,

@@ -9,7 +9,7 @@ const PersonelPage = ({jobs, users}) => {
     );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const res = await fetch('https://bimeharman.faradns.ir/api/v1.0/cms/jobPosition/active?pageIndex=0&pageSize=10', {
         headers: {
             'cultureLcid': 1065

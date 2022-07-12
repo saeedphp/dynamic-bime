@@ -10,7 +10,7 @@ const VisionPage = ({visionsAttr, visions}) => {
     )
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const res = await fetch(BASE_URL + 'api/v1.0/cms/visionAttribute/active?pageIndex=0&pageSize=100', {
         headers: {
             'cultureLcid': 1065

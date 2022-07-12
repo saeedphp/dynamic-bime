@@ -16,7 +16,7 @@ const ProductPage = ({insurances}) => {
     )
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const res = await fetch('https://bimeharman.faradns.ir/api/v1.0/cms/insurance/active?pageIndex=0&pageSize=50', {
         headers: {
             'cultureLcid': 1065

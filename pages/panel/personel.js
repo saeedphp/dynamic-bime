@@ -18,7 +18,7 @@ const PersonelPage = ({personelCat,personel}) => {
     )
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const res = await fetch(BASE_URL + 'api/v1.0/cms/personnelPanelCategory/active?pageIndex=0&pageSize=10', {
         headers: {
             'cultureLcid': 1065,

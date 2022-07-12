@@ -9,7 +9,7 @@ const BrochurePage = ({brochures}) => {
     )
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const res = await fetch('https://bimeharman.faradns.ir/api/v1.0/cms/pdf/active?pageIndex=0&pageSize=20', {
         headers: {
             'cultureLcid': 1065
