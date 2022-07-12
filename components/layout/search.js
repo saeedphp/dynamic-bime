@@ -19,25 +19,36 @@ const Search = ({search, generatedUrl}) => {
     //         }
     //     }
     // }, [changeRoute])
+    useEffect(() => {
+       
+            router.push('/search' + generatedUrl, undefined, {shallow: true})
+        
+    }, [generatedUrl])
     return (
       <>
           <form className="search_form">
               <input type="text" value={val} onChange={e => setVal(e.target.value)} id="search" placeholder="جستجو…" name="search" />
               <button onClick={e => {
                   e.preventDefault()
-                   if(val.length > 3)   {
+                   if(val.length > 2)   {
                           search({}, {
                       cultureLcid: 1065,
                           pageIndex: 0,
                           pageSize: 10,
                           title: val,
                       })    }
-                      if(generatedUrl.length !== 0){
+                    //   if(generatedUrl.length !== 0){
                         // setChangeRoute(true)
                         //   Router.push('/search')
-                          router.push('/search', undefined, {shallow: true})
-                      }
-
+                        // if(router.pathname.includes('search') == false){
+                            // router.push('/search', undefined, {shallow: true})
+                    //     }else{
+                    //         router.push(router.pathname)
+                    //     }
+                    //   }else{
+                       
+                    //   }
+                      
              
               } 
               
