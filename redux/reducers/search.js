@@ -15,7 +15,7 @@ export default function searchState(state = initialState, action){
             return {
                 ...state,
                 searchResults: payload?.result,
-                generatedUrl: payload.url.split('?')[1]
+                generatedUrl: `?${payload.url.split('?')[1]}`
             }
         default:
             return state

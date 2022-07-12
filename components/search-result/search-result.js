@@ -1,4 +1,4 @@
-import {Fragment, useEffect} from "react";
+import {Fragment, useEffect, useState} from "react";
 import {connect} from "react-redux";
 import searchActions from "../../redux/actions/search";
 import Title from "../ui/title";
@@ -10,19 +10,25 @@ import SpecialInsurance from "../icons/insurance/special-insurance";
 import BlogIcon from "../icons/blog-icon";
 
 const SearchResult = ({insurances, blogPosts, generatedUrl, search}) => {
-    console.log(insurances)
+    console.log(insurances);
+    const [locationSearch, setLocationSearch] = useState('');
     useEffect(() => {
         if (generatedUrl.length !== 0 && '?' + generatedUrl !== location.search) {
             location.search = generatedUrl
+            setLocationSearch(generatedUrl)
+        }else{
+            // setLocationSearch(location.search)
         }
         console.log(location)
 
     }, [generatedUrl])
     useEffect(() => {
 
-        search({}, {}, location.search)
+        if(locationSearch.length !== 0 && locationSearch !== '?' + generatedUrl){
+            search({}, {}, location.search)
+        }
 
-    }, [])
+    }, [locationSearch])
     return (
         <Fragment>
             <section className={styles.search}>
