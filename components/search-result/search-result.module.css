@@ -17,6 +17,19 @@
     padding: 2rem 3rem;
 }
 
+.search .items .title{
+    font-weight: 600;
+    color: purple;
+    display: flex;
+    align-items: center;
+}
+
+.search .items .title svg{
+    width: 49px;
+    height: 49px;
+    margin-left: 1rem;
+}
+
 @media (max-width: 768px) {
     .search{
         padding: 1rem .5rem;

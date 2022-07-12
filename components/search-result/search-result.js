@@ -5,6 +5,9 @@ import Title from "../ui/title";
 import Card from "../ui/card";
 import Link from "next/link";
 import styles from './search-result.module.css';
+import Image from "next/image";
+import SpecialInsurance from "../icons/insurance/special-insurance";
+import BlogIcon from "../icons/blog-icon";
 
 const SearchResult = ({insurances, blogPosts, generatedUrl, search}) => {
     console.log(insurances)
@@ -34,7 +37,8 @@ const SearchResult = ({insurances, blogPosts, generatedUrl, search}) => {
                                 insurances.map((item) => (
                                     <Card className={styles.items} key={item.id}>
                                         <Link href={`/product/${item.id}`}>
-                                            <a>
+                                            <a className={styles.title}>
+                                                <SpecialInsurance />
                                                 {item.title}
                                             </a>
                                         </Link>
@@ -66,7 +70,8 @@ const SearchResult = ({insurances, blogPosts, generatedUrl, search}) => {
                                 blogPosts.map((item) => (
                                     <Card className={styles.items} key={item.id}>
                                         <Link href={`blog/${item.id}`}>
-                                            <a>
+                                            <a className={styles.title}>
+                                                <BlogIcon />
                                                 {item.title}</a>
                                         </Link>
                                         <p dangerouslySetInnerHTML={{__html: item.body.slice(0, 30, '...')}}>
