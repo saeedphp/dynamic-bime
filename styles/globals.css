@@ -686,6 +686,10 @@ input[type=radio]{
   align-items: center;
 }
 
+a{
+  list-style: none;
+}
+
 .search_form button{
   background: #e2d4e6;
   border: 0;
