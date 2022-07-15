@@ -8,27 +8,41 @@ import styles from './search-result.module.css';
 import Image from "next/image";
 import SpecialInsurance from "../icons/insurance/special-insurance";
 import BlogIcon from "../icons/blog-icon";
+import { useRouter } from "next/router";
 
 const SearchResult = ({insurances, blogPosts, generatedUrl, search}) => {
     console.log(insurances);
     const [locationSearch, setLocationSearch] = useState('');
+    const router = useRouter();
+   
     useEffect(() => {
-        if (generatedUrl.length !== 0 && '?' + generatedUrl !== location.search) {
-            location.search = generatedUrl
-            setLocationSearch(generatedUrl)
+        if (generatedUrl.length !== 0) {
+            if( generatedUrl !== location.search){
+                router.push('/search' + generatedUrl, undefined, {shallow: true})
+                setLocationSearch(generatedUrl)
+            }
+            else{
+                router.push('/search' + generatedUrl, undefined, {shallow: true})
+            }
+            
         }else{
-            // setLocationSearch(location.search)
+            search({}, {}, location.search)
         }
-        console.log(location)
+         console.log('generetedUrl',generatedUrl);
+        console.log('locationSearch',locationSearch)
 
     }, [generatedUrl])
     useEffect(() => {
+        // setLocationSearch(location.search)
+       
+    }, [])
+    useEffect(() => {
 
-        if(locationSearch.length !== 0 && locationSearch !== '?' + generatedUrl){
-            search({}, {}, location.search)
-        }
+       
+            
+        
 
-    }, [locationSearch])
+    }, [])
     return (
         <Fragment>
             <section className={styles.search}>
