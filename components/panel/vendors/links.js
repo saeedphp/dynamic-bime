@@ -46,7 +46,7 @@ const Links = () => {
                   <span>
                           <Image src={BASE_URL + item.iconInfo.url} alt="image" layout={"fill"}/>
                       </span>
-                        <a href={BASE_URL + item.fileInfo.url}>
+                        <a href={item.url}>
                             {item.title}
                         </a>
                     </div>
