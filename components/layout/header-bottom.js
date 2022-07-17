@@ -12,7 +12,7 @@ const HeaderBottom = () => {
     const [menu, setMenu] = useState([]);
 
     useEffect(() => {
-        fetch(BASE_URL + "api/v1.0/cms/menuitem/list/active", {
+        fetch(BASE_URL + "api/v1.0/cms/menuitem/list", {
             headers: {
                 'cultureLcid': 1065,
             }
@@ -44,7 +44,7 @@ const HeaderBottom = () => {
             <div className={styles.navigation}>
                 <nav>
                     <ul>
-                        {menu.filter((item) => (item.parentId === null && item.firstFooter === false && item.secendFooter === false && item.thirdFooter === false))
+                        {menu.filter((item) => (item.parentId === null && item.firstFooter !== true && item.secendFooter !== true && item.thirdFooter !== true))
                             .map((menuItem) => (
                             <li key={menuItem.id}>
                                 <Link href={`${menuItem.url}`}>
