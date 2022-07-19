@@ -2,7 +2,7 @@
     position: relative;
     width: 100%;
     height: auto;
-    display: flex;
+    display: flex !important;
     padding: 2rem 4rem;
 }
 
