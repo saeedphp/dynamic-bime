@@ -12,20 +12,20 @@
 }
 
 .footer-bottom .social li{
-    margin: 0 1rem;
+/*    margin: 0 1rem;
     border: 1px solid #E40F7E;
     border-radius: 50%;
     padding: 0.5rem;
-    position: relative;
+    position: relative;*/
 }
 
 .footer-bottom .social li a{
-    background: #E40F7E;
+/*    background: #E40F7E;
     border-radius: 50%;
     width: 30px;
     height: 30px;
     display: block;
-    position: relative;
+    position: relative;*/
 }
 
 .footer-bottom .social li a > span{

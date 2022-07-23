@@ -79,7 +79,8 @@ const Login = () => {
                  //console.log(data);
                 cookies.set('token', data.accessToken.token, { path: '/' });
                 //console.log(cookies.get('token'));
-                router.push("/");
+                //router.push("/");
+                window.location.href = '/'
                 /*if (userInfo.accessLevel === "Personnel"){
                     router.push("/panel/personel");
                 }else if (userInfo.accessLevel === "Representative"){

@@ -60,10 +60,13 @@
 .link .item a{
     padding: 1rem 2rem;
     display: block;
+    width: 80%;
+    text-align: center;
+    font-size: 14px;
 }
 
 .link .item span{
-    width: 30px;
+    width: 20%;
 }
 
 @media (max-width: 768px) {

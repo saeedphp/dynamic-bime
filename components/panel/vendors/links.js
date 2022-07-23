@@ -44,7 +44,7 @@ const Links = () => {
                 {links.map((item, i) => (
                     <div key={i} className={styles.item}>
                   <span>
-                          <Image src={BASE_URL + item.iconInfo.url} alt="image" layout={"fill"}/>
+                          <Image src={img} alt="image" layout={"fill"}/>
                       </span>
                         <a href={item.url}>
                             {item.title}
