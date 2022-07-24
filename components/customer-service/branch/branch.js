@@ -76,7 +76,7 @@ const Branch = (props) => {
     };
 
     const filteredCities = healthsCenter.filter((city) => {
-        return city.addressGetResponseDto.stateInfo.name === filteredCity;
+        return city.cityGetResponseDto.stateInfo.name === filteredCity;
     });
 
     const filteredPdfs = pdf.filter((city) => {

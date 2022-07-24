@@ -33,10 +33,10 @@ const HealthList = (props) => {
                             تلفن
                         </span>
                         <span>
-                            شهر
+                            استان
                         </span>
                         <span>
-                            استان
+                            شهر
                         </span>
                         <span>
                             مرکز
@@ -53,7 +53,7 @@ const HealthList = (props) => {
                                 {item.centerName}
                             </span>
                                     <span>
-                                {item.addressGetResponseDto.exactAddress}
+                                {item.exactAddress}
                             </span>
                                     <span>
                                 <a href={`tel:${item.phoneNumber}`}>
@@ -61,10 +61,10 @@ const HealthList = (props) => {
                                 </a>
                             </span>
                                     <span>
-                                {item.addressGetResponseDto.cityInfo.name}
+                                {item.cityGetResponseDto.name}
                             </span>
                                     <span>
-                                {item.addressGetResponseDto.stateInfo.name}
+                                {item.cityGetResponseDto.stateInfo.name}
                             </span>
                                     <span>
                                 {item.center}
