@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import BlogItem from "./blog-item";
 import {BASE_URL} from "../../../data/config";
+import Button from "../../ui/button";
 
 const Blog = () => {
 
@@ -131,6 +132,10 @@ const Blog = () => {
 
                 })}
             </div>
+
+            <Button link="/blog">
+                مشاهده همه مقالات
+            </Button>
 
         </section>
     )
