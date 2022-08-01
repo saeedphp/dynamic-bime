@@ -696,6 +696,24 @@ a{
   color: #6f2a82;
 }
 
+.form_notif{
+  width: 50%;
+  text-align: center !important;
+  margin: 2rem auto;
+  border-radius: 8px;
+  padding: .5rem 0;
+}
+
+.form_notif.success{
+  background: #d0ebd0;
+  color: #0b990b;
+}
+
+.form_notif.error{
+  background: #e3a1a1;
+  color: #d91616;
+}
+
 @media (max-width: 768px){
   .error_page{
     padding: 0 1rem;

@@ -1,6 +1,9 @@
 import styles from './representation-form.module.css';
 import Button from "../ui/button";
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
+import Cookies from 'universal-cookie';
+import {BASE_URL, BASE_URL_UPLOAD_IMG} from "../../data/config";
+import {retry} from "@reduxjs/toolkit/query";
 
 const data = {
     provinces: [
@@ -168,29 +171,163 @@ const RepresentationForm = () => {
         (s) => s.name === selectedState
     );
 
+    const cookies = new Cookies();
+    const token = cookies.get('token');
+
+    const form = useRef(null);
+
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [fatherName, setFatherName] = useState('');
+    const [gender, setGender] = useState('');
+    const [birthDate, setBirthDate] = useState('');
+    const [nationalCode, setNationalCode] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [educationLevel, setEducationLevel] = useState('');
+    const [educationField, setEducationField] = useState('');
+    const [nezamVazifeStatus, setNezamVazifeStatus] = useState('');
+    const [province, setProvince] = useState('');
+    const [city, setCity] = useState('');
+    const [hasWorkHistoryOnInsuranceCompanies, setHasWorkHistoryOnInsuranceCompanies] = useState('');
+    const [description, setDescription] = useState('');
+    const [error, setError] = useState(null);
+    const [success, setSuccess] = useState(null);
+
+    const firstNameChangeHandler = (e) => {
+        setFirstName(e.target.value);
+    }
+    const lastNameChangeHandler = (e) => {
+        setLastName(e.target.value);
+    }
+    const fatherNameChangeHandler = (e) => {
+        setFatherName(e.target.value);
+    }
+    const genderChangeHandler = (e) => {
+        setGender(e.target.value);
+    }
+    const birthDateChangeHandler = (e) => {
+        setBirthDate(e.target.value);
+    }
+    const nationalCodeChangeHandler = (e) => {
+        setNationalCode(e.target.value);
+    }
+    const phoneNumberChangeHandler = (e) => {
+        setPhoneNumber(e.target.value);
+    }
+    const educationLevelChangeHandler = (e) => {
+        setEducationLevel(e.target.value);
+    }
+    const educationFieldChangeHandler = (e) => {
+        setEducationField(e.target.value);
+    }
+    const nezamVazifeStatusChangeHandler = (e) => {
+        setNezamVazifeStatus(e.target.value);
+    }
+    const provinceChangeHandler = (e) => {
+        setProvince(e.target.value);
+    }
+    const cityChangeHandler = (e) => {
+        setCity(e.target.value);
+    }
+    const hasWorkHistoryOnInsuranceCompaniesChangeHandler = (e) => {
+        setHasWorkHistoryOnInsuranceCompanies(e.target.value);
+    }
+    const descriptionChangeHandler = (e) => {
+        setDescription(e.target.value);
+    }
+
+    const provinceHandler = (e) => {
+        setSelectedState(e.target.value);
+    }
+
+    const cityHandler = (e) => {
+        setSelectedCity(e.target.value);
+    }
+
+    let handleSubmit = async (event) => {
+
+        event.preventDefault();
+        setError(null);
+        setSuccess(null);
+        console.log(firstName);
+        console.log(gender);
+        console.log(birthDate);
+        console.log(hasWorkHistoryOnInsuranceCompanies);
+        form.current.reset();
+        await fetch(BASE_URL_UPLOAD_IMG + "webservice/home/agency", {
+            method: "POST",
+            headers: {
+                'accept': '*/*',
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                firstName,
+                lastName,
+                fatherName,
+                gender,
+                birthDate,
+                nationalCode,
+                phoneNumber,
+                educationLevel,
+                educationField,
+                nezamVazifeStatus,
+                'province': selectedState,
+                'city': selectedCity,
+                'hasWorkHistoryOnInsuranceCompanies': true,
+                description
+            }),
+        })
+            .then(response => {
+
+                console.log(response);
+                console.log(response.text());
+                if (response.status === 404) {
+                    throw new Error('آدرس api اشتباه است!');
+                } else if (response.status === 400) {
+                    //console.log(response.text());
+                    throw new Error('لطفا تمامی مقادیر را پر کنید!')
+                } else if (response.ok) {
+                    throw new Error('فرم با موفقیت ارسال شد')
+                }
+                setSuccess(success.message);
+                return response.json();
+                //return response.json().then(err => Promise.reject(err))
+
+            })
+            .then((response) => response.json())
+            .then(console.log).catch((error) => {
+                console.log('error: ' + error)
+                setError(error.message)
+            });
+
+    }
+
     return (
-        <form className={styles.form}>
+        <form id="myFrom" ref={form} onSubmit={handleSubmit} className={styles.form} method="post">
+            {error && <p className={`form_notif error`}>{error}</p>}
+            {success && <p className={`form_notif success`}>{success}</p>}
             <div className={styles.controls}>
 
                 <div>
-                    <label htmlFor="name">
+                    <label htmlFor="firstName">
                         نام
                     </label>
-                    <input id="name" name="name" type="text"/>
+                    <input id="firstName" name="firstName" type="text" defaultValue={firstName} onChange={firstNameChangeHandler}/>
                 </div>
 
                 <div>
-                    <label htmlFor="family">
+                    <label htmlFor="lastName">
                         نام خانوادگی
                     </label>
-                    <input id="family" name="family" type="text"/>
+                    <input id="lastName" name="lastName" type="text" defaultValue={lastName} onChange={lastNameChangeHandler}/>
                 </div>
 
                 <div>
-                    <label htmlFor="father">
+                    <label htmlFor="fatherName">
                         نام پدر
                     </label>
-                    <input id="father" name="father" type="text"/>
+                    <input id="fatherName" name="fatherName" type="text" defaultValue={fatherName} onChange={fatherNameChangeHandler}/>
                 </div>
 
             </div>
@@ -202,12 +339,12 @@ const RepresentationForm = () => {
                         جنسیت
                     </p>
                     <div>
-                        <input id="female" name="gender" type="radio"/>
+                        <input id="female" name="gender" type="radio" defaultValue="زن" onChange={genderChangeHandler}/>
                         <label htmlFor="female">
                             زن
                         </label>
 
-                        <input id="male" name="gender" type="radio"/>
+                        <input id="male" name="gender" type="radio" defaultValue="مرد" onChange={genderChangeHandler}/>
                         <label htmlFor="male">
                             مرد
                         </label>
@@ -215,17 +352,17 @@ const RepresentationForm = () => {
                 </div>
 
                 <div>
-                    <label htmlFor="birth">
+                    <label htmlFor="birthDate">
                         تاریخ تولد
                     </label>
-                    <input id="birth" name="birth" type="date"/>
+                    <input id="birthDate" name="birthDate" type="date" defaultValue={birthDate} onChange={birthDateChangeHandler}/>
                 </div>
 
                 <div>
-                    <label htmlFor="id">
+                    <label htmlFor="nationalCode">
                         کد ملی
                     </label>
-                    <input id="id" min="1" max="10" maxLength="10" name="id" type="tel"/>
+                    <input id="nationalCode" min="1" max="10" maxLength="10" name="nationalCode" type="tel" defaultValue={nationalCode} onChange={nationalCodeChangeHandler}/>
                 </div>
 
             </div>
@@ -233,28 +370,30 @@ const RepresentationForm = () => {
             <div className={styles.controls}>
 
                 <div>
-                    <label htmlFor="mobile">
+                    <label htmlFor="phoneNumber">
                         تلفن همراه
                     </label>
-                    <input id="mobile" max="11" maxLength="11" name="mobile" type="tel"/>
+                    <input id="phoneNumber" max="11" maxLength="11" name="phoneNumber" type="tel" defaultValue={phoneNumber} onChange={phoneNumberChangeHandler}/>
                 </div>
 
                 <div className={styles.ostan}>
-                    <label>
+                    <label htmlFor="educationLevel">
                         آخرین مدرک تحصیلی
                     </label>
-                    <select>
-                        <option>a</option>
-                        <option>b</option>
-                        <option>c</option>
+                    <select name="educationLevel" defaultValue={educationLevel} onChange={educationLevelChangeHandler}>
+                        <option value="ابتدایی">ابتدایی</option>
+                        <option value="دیپلم">دیپلم</option>
+                        <option value="کارشناسی">کارشناسی</option>
+                        <option value="کارشناسی ارشد">کارشناسی ارشد</option>
+                        <option value="دکتری">دکتری</option>
                     </select>
                 </div>
 
                 <div>
-                    <label htmlFor="field">
+                    <label htmlFor="educationField">
                         رشته تحصیلی
                     </label>
-                    <input id="field" name="field" type="text"/>
+                    <input id="educationField" name="educationField" type="text" defaultValue={educationField} onChange={educationFieldChangeHandler}/>
                 </div>
 
             </div>
@@ -262,18 +401,19 @@ const RepresentationForm = () => {
             <div className={styles.controls}>
 
                 <div className={styles.ostan}>
-                    <label>
+                    <label htmlFor="nezamVazifeStatus">
                         وضعیت نظام وظیفه
                     </label>
-                    <select>
-                        <option>a</option>
-                        <option>b</option>
-                        <option>c</option>
-                    </select>
+                    <input id="nezamVazifeStatus" name="nezamVazifeStatus" type="text" defaultValue={nezamVazifeStatus} onChange={nezamVazifeStatusChangeHandler}/>
+                    {/*<select id="nezamVazifeStatus" name="nezamVazifeStatus" defaultValue={nezamVazifeStatus} onChange={nezamVazifeStatusChangeHandler}>
+                        <option value="معافیت تحصیلی">معافیت تحصیلی</option>
+                        <option value="معاف">معاف</option>
+                        <option value="مشمول">مشمول</option>
+                    </select>*/}
                 </div>
 
                 <div style={{display: "none"}} className={styles.ostan}>
-                    <label>
+                    <label htmlFor="province">
                         استان
                     </label>
                     <select
@@ -295,8 +435,9 @@ const RepresentationForm = () => {
                 <div className={styles.ostan}>
                     <label>استان</label>
                     <select
+                        name="province"
                         placeholder="State"
-                        value={selectedState}
+                        defaultValue={selectedState}
                         onChange={(e) => setSelectedState(e.target.value)}
                     >
                         <option>استان</option>
@@ -313,6 +454,7 @@ const RepresentationForm = () => {
                 <div className={styles.ostan}>
                     <label>شهر</label>
                     <select
+                        name="city"
                         placeholder="City"
                         value={selectedCity}
                         onChange={(e) => setSelectedCity(e.target.value)}
@@ -337,15 +479,16 @@ const RepresentationForm = () => {
                         آیا سابقه فعالیت در شرکت های بیمه ای را دارید؟
                     </p>
                     <div>
-                        <input id="yes" name="experience" type="radio"/>
+                        <input id="yes" name="hasWorkHistoryOnInsuranceCompanies" type="checkbox" defaultValue defaultChecked={hasWorkHistoryOnInsuranceCompanies}  onChange={hasWorkHistoryOnInsuranceCompaniesChangeHandler}/>
+                        {/*<input id="yes" name="hasWorkHistoryOnInsuranceCompanies" type="radio" value={true} onChange={hasWorkHistoryOnInsuranceCompaniesChangeHandler}/>
                         <label htmlFor="yes">
                             بله
                         </label>
 
-                        <input id="no" name="experience" type="radio"/>
+                        <input id="no" name="hasWorkHistoryOnInsuranceCompanies" type="radio" value={false} onChange={hasWorkHistoryOnInsuranceCompaniesChangeHandler}/>
                         <label htmlFor="no">
                             خیر
-                        </label>
+                        </label>*/}
                     </div>
                 </div>
 
@@ -357,7 +500,7 @@ const RepresentationForm = () => {
                     <label htmlFor="description">
                         توضیحات
                     </label>
-                    <textarea name="description">
+                    <textarea name="description" defaultValue={description} onChange={descriptionChangeHandler}>
 
                     </textarea>
                 </div>
